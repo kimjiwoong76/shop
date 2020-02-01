@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jw.shop.mapper.ProductMapper">
+
+	<select id="prdSelect" resultType="map">
+		select * from tbl_goods order by PRDNUM desc
+	</select>
+	<select id="prdSelectCATE" resultType="map">
+		select * from tbl_goods where CATECODE = #{cateCode} order by prdnum desc
+	</select>
+	<select id="prdView" resultType="product">
+		select * from tbl_goods where PRDNUM = #{prdNum}
+	</select>
+
+	<insert id="prdInsert">
+		INSERT INTO tbl_goods (PRDNUM,PRDNAME, CATECODE, PRDPRICE, PRDSTOCK, PRDDES, PRDIMG, PRDCOLOR, PRDSIZE)
+		VALUES (SHOP_SEQ.nextval,#{prdName}, #{cateCode}, #{prdPrice}, #{prdStock}, #{prdDes}, #{prdImg}, #{prdColor}, #{prdSize})
+	</insert>
+
+	<update id="prdUpdate">
+		UPDATE tablename1
+		SET
+		columnname1=#{param1}
+		WHERE
+		columnname2 = #{param2}
+	</update>
+
+	<delete id="prdDelete">
+		DELETE FROM tablename1 WHERE
+		columnname1 = #{param1}
+	</delete>
+
+</mapper>

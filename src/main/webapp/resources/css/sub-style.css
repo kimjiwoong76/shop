@@ -65,6 +65,9 @@
     margin:20px 10px;
     float:left;
 }
+.list-item-box li .arrival-img img{
+	max-width:100%;
+}
 .arrival-icon{
     text-align:center;
     margin-top:10px;

@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.jw.shop.domain.ShopMemberVO" alias="regMember"></typeAlias>
+		<typeAlias type="com.jw.shop.domain.UserVO" alias="regMember"></typeAlias>
+		<typeAlias type="com.jw.shop.domain.ProductVO" alias="product"></typeAlias>
 	</typeAliases>
 </configuration>

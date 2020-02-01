@@ -1,66 +1,4 @@
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
-        <div id="section1" class="section">
-            <div class="sec1-slide-btn">
-                <a href="#!" class="left">
-
-                </a>
-                <a href="#!" class="right">
-
-                </a>
-            </div>
-            <div class="sec1-slide-wrap">
-                <div class="sec1-slide sec1-slide1">
-                    <div class="container">
-                        <div class="row rel">
-                            <div class="sec1-txt">
-                                <h2>
-                                    THIS IS <br>
-                                    MY STORY
-                                </h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting <br>
-                                    industry. Lorem Ipsum has been the industry's standard dummy.</p>
-                                <div class="more-btn">
-                                    <a href="#!">SHOP NOW</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="sec1-slide sec1-slide1">
-                    <div class="container">
-                        <div class="row rel">
-                            <div class="sec1-txt">
-                                <h2>
-                                    THIS IS <br>
-                                    MY STORY
-                                </h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting <br>
-                                    industry. Lorem Ipsum has been the industry's standard dummy.</p>
-                                <div class="more-btn">
-                                    <a href="#!">SHOP NOW</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="sec1-slide sec1-slide1">
-                    <div class="container">
-                        <div class="row rel">
-                            <div class="sec1-txt">
-                                <h2>
-                                    THIS IS <br>
-                                    MY STORY
-                                </h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting <br>
-                                    industry. Lorem Ipsum has been the industry's standard dummy.</p>
-                                <div class="more-btn">
-                                    <a href="#!">SHOP NOW</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <script type="text/javascript">
                 $(function() {
                     $('.sec1-slide-wrap').slick({
@@ -85,6 +23,68 @@
                 });
 
             </script>
+        <div id="section1" class="section">
+            <div class="sec1-slide-btn">
+                <a href="#!" class="left">
+
+                </a>
+                <a href="#!" class="right">
+
+                </a>
+            </div>
+            <div class="sec1-slide-wrap">
+                <div class="sec1-slide sec1-slide1">
+                    <div class="container">
+                        <div class="row rel">
+                            <div class="sec1-txt">
+                                <h2>
+                                    THIS IS <br>
+                                    MY STORY
+                                </h2>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting <br>
+                                    industry. Lorem Ipsum has been the industry's standard dummy.</p>
+                                <div class="more-btn">
+                                    <a href="/product/list.do">SHOP NOW</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sec1-slide sec1-slide1">
+                    <div class="container">
+                        <div class="row rel">
+                            <div class="sec1-txt">
+                                <h2>
+                                    THIS IS <br>
+                                    MY STORY
+                                </h2>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting <br>
+                                    industry. Lorem Ipsum has been the industry's standard dummy.</p>
+                                <div class="more-btn">
+                                   <a href="/product/list.do">SHOP NOW</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sec1-slide sec1-slide1">
+                    <div class="container">
+                        <div class="row rel">
+                            <div class="sec1-txt">
+                                <h2>
+                                    THIS IS <br>
+                                    MY STORY
+                                </h2>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting <br>
+                                    industry. Lorem Ipsum has been the industry's standard dummy.</p>
+                                <div class="more-btn">
+                                    <a href="/product/list.do">SHOP NOW</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="section2" class="section white_space">
             <div class="container">
@@ -104,7 +104,7 @@
                         <div class="arrival-slide-wrap">
                             <div class="arrival-slide">
                                 <div class="arrival-slide-item">
-                                    <a href="/resources/sub/view.php">
+                                    <a href="/product/view.do">
                                         <div class="arrival-img">
 <!--                                            <img src="/resources/img/arrival-img1.jpg" alt="">-->
                                             <img src="/resources/img/model1.jpg" alt="">
@@ -118,7 +118,7 @@
                             </div>
                             <div class="arrival-slide">
                                 <div class="arrival-slide-item">
-                                    <a href="/resources/sub/view.php">
+                                    <a href="/product/view.do">
                                         <div class="arrival-img">
                                             <img src="/resources/img/model1.jpg" alt="">
                                         </div>
@@ -131,7 +131,7 @@
                             </div>
                             <div class="arrival-slide">
                                 <div class="arrival-slide-item">
-                                    <a href="/resources/sub/view.php">
+                                    <a href="/product/view.do">
                                         <div class="arrival-img">
 <!--                                            <img src="/resources/img/arrival-img3.jpg" alt="">-->
                                             <img src="/resources/img/model3.jpg" alt="">
@@ -145,7 +145,7 @@
                             </div>
                             <div class="arrival-slide">
                                 <div class="arrival-slide-item">
-                                    <a href="/resources/sub/view.php">
+                                    <a href="/product/view.do">
                                         <div class="arrival-img">
 <!--                                            <img src="/resources/img/arrival-img4.jpg" alt="">-->
                                             <img src="/resources/img/model4.jpg" alt="">
@@ -159,7 +159,7 @@
                             </div>
                             <div class="arrival-slide">
                                 <div class="arrival-slide-item">
-                                    <a href="/resources/sub/view.php">
+                                    <a href="/product/lview.do">
                                         <div class="arrival-img">
                                             <img src="/resources/img/model1.jpg" alt="">
                                         </div>
@@ -172,7 +172,7 @@
                             </div>
                             <div class="arrival-slide">
                                 <div class="arrival-slide-item">
-                                    <a href="#!">
+                                    <a href="/product/view.do">
                                         <div class="arrival-img">
                                             <img src="/resources/img/model1.jpg" alt="">
                                         </div>
@@ -185,7 +185,7 @@
                             </div>
                             <div class="arrival-slide">
                                 <div class="arrival-slide-item">
-                                    <a href="#!">
+                                    <a href="/product/view.do">
                                         <div class="arrival-img">
                                             <img src="/resources/img/model3.jpg" alt="">
                                         </div>
@@ -198,7 +198,7 @@
                             </div>
                             <div class="arrival-slide">
                                 <div class="arrival-slide-item">
-                                    <a href="#!">
+                                    <a href="/product/view.do">
                                         <div class="arrival-img">
                                             <img src="/resources/img/model4.jpg" alt="">
                                         </div>
@@ -250,7 +250,7 @@
         <div id="section3" class="section">
             <div class="layer clearfix">
                 <div class="main-best-item sec3-item">
-                    <a href="/resources/sub/list.php">
+                    <a href="/product/list.do">
                         <div class="main-best-item-txt layer-item-txt">
                             <h3>BEST ITEM</h3>
                             <p>Lorem ipsum dummy text is heavy <br>
@@ -259,7 +259,7 @@
                     </a>
                 </div>
                 <div class="main-unique-item sec3-item">
-                    <a href="/resources/sub/list.php">
+                    <a href="/product/list.do">
                         <div class="main-unique-item-txt layer-item-txt">
                             <h3>UNIQUE</h3>
                             <p>Lorem ipsum dummy text is heavy <br>
@@ -268,7 +268,7 @@
                     </a>
                 </div>
                 <div class="main-basic-item sec3-item">
-                    <a href="/resources/sub/list.php">
+                    <a href="/product/list.do">
                         <div class="main-basic-item-txt layer-item-txt">
                             <h3>BASIC</h3>
                             <p>Lorem ipsum dummy text is heavy <br>

@@ -20,6 +20,11 @@ Create date : 2018. 11. 1.
 }
 .basic-form .row-group p{
 	padding:10px 0;
+	text-align:center;
+}
+.basic-form .row-group p em{
+	font-weight:500;
+	color:indianred;
 }
 .basic-form .row-btn{
 	margin-top:30px;

@@ -14,7 +14,7 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />
-	<mvc:resources mapping="/resources/upload/**" location="/resources/upload/" />
+	<mvc:resources mapping="/resources/upload/**" location="/resources/upload/thumb/" />
 	<!-- resource mapping -->
 	<!-- location : 물리적 주소 / mapping : 가상 주소 -->
 

@@ -1,0 +1,10 @@
+.jsgrid-header-cell, .jsgrid-cell{
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	word-wrap:normal;
+	width:100px;
+	overflow:hidden;	
+}
+.jsgrid-cell img{
+	max-width:100%;
+}

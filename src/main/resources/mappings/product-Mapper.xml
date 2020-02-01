@@ -16,7 +16,7 @@
 
 	<insert id="prdInsert">
 		INSERT INTO tbl_goods (PRDNUM,PRDNAME, CATECODE, PRDPRICE, PRDSTOCK, PRDDES, PRDIMG, PRDCOLOR, PRDSIZE)
-		VALUES (SHOP_SEQ.nextval,#{prdName}, #{cateCode}, #{prdPrice}, #{prdStock}, #{prdDes}, #{prdImg}, #{prdColor}, #{prdSize})
+		VALUES (SHOP_SEQ.nextval, #{prdName}, #{cateCode}, #{prdPrice}, #{prdStock}, #{prdDes}, #{prdImg}, #{prdColor}, #{prdSize})
 	</insert>
 
 	<update id="prdUpdate">

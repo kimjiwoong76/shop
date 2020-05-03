@@ -43,7 +43,7 @@
                  <table class="table">
         	<thead>
         		<th>아이디</th>
-        		<th>비밀번호</th>
+        		<th>등급</th>
         		<th>이름</th>
         		<th>별명</th>
                 <th>이메일</th>
@@ -51,15 +51,15 @@
                 <th>성별</th>
         	</thead>
         	<tbody>
-        	<c:forEach items="${shopMember}" var="shopMember">
+        	<c:forEach items="${userList}" var="shopMember">
         	<tr>
-        		<td>${shopMember.shop_id}</td>
-        		<td>${shopMember.shop_pwd}</td>
-        		<td>${shopMember.shop_name}</td>
-        		<td>${shopMember.shop_nickname}</td>
-        		<td>${shopMember.shop_email}</td>
-        		<td>${shopMember.shop_number}</td>
-        		<td>${shopMember.shop_gender}</td>
+        		<td>${shopMember.SHOP_ID}</td>
+        		<td>${shopMember.GRADE}</td>
+        		<td>${shopMember.SHOP_NAME}</td>
+        		<td>${shopMember.SHOP_NICKNAME}</td>
+        		<td>${shopMember.SHOP_EMAIL}</td>
+        		<td>${shopMember.SHOP_NUMBER}</td>
+        		<td>${shopMember.SHOP_GENDER}</td>
         		</tr>
         		</c:forEach>
         	</tbody>                

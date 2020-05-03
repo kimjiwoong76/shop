@@ -32,7 +32,6 @@
 					<div class="card">
 						<div class="card-header">
 							<h3 class="card-title">상품리스트</h3>
-
 							<div class="card-tools">
 								<button type="button" class="btn btn-tool"
 									data-card-widget="collapse" data-toggle="tooltip"
@@ -48,8 +47,11 @@
 							</div>
 						</div>
 						<div class="card-body">
+							<div class="card-body-link">
+								<a href="/adm/product/form.do">상품등록</a>
+							</div>
 							<div class="jsgrid-grid-header jsgrid-header-scrollbar">
-								<table class="jsgrid-table">
+								<table class="jsgrid-table hover">
 									<thead>
 									<tr class="jsgrid-header-row">
 										<th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 150px">썸네일</th>
@@ -62,7 +64,7 @@
 									</thead>
 									<tbody>
 										<c:forEach var="result" items="${admProductList}">
-										<tr class="jsgrid-row">
+										<tr class="jsgrid-row" onClick="location.href='/adm/product/form_update.do?prdNum=${result.PRDNUM}'">
 											<td class="jsgrid-cell" style="width: 150px"><img src="<c:out value="${result.PRDIMG}" />"></td>
 											<td class="jsgrid-cell" style="width: 150px"><c:out value="${result.PRDNUM}" /></td>
 											<td class="jsgrid-cell" style="width: 150px"><c:out value="${result.PRDNAME}" /></td>

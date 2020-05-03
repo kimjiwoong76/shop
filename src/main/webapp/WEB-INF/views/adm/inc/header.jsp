@@ -21,7 +21,12 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- jQuery -->
+  <!--  
   <script src="/resources/adm/js/jquery.min.js"></script>
+  -->
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <!-- <script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script> -->
+  <script src="/resources/ckeditor/ckeditor.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-footer-fixed">
 <!-- Site wrapper -->
@@ -152,12 +157,12 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
+    <a href="/adm.do" class="brand-link">
       <img src="/resources/adm/img/AdminLTELogo.png"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">마이스토리</span>
     </a>
 
     <!-- Sidebar -->
@@ -168,7 +173,7 @@
           <img src="/resources/adm/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="/adm.do" class="d-block">ADMIN</a>
         </div>
       </div>
 
@@ -212,6 +217,7 @@
               </li>
             </ul>
           </li>
+          <!--  
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -697,6 +703,7 @@
             </a>
           </li>
         </ul>
+      	  -->
       </nav>
       <!-- /.sidebar-menu -->
     </div>

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/adm/inc/header.jsp"%>
+<script src="/resources/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+
 
 <script type="text/javascript">
 	$(function() {
@@ -11,17 +13,6 @@
 			prdPrice = $("#prdPrice").val();
 			numberFormat(uncomma(prdPrice));
 		});
-		$("#prdimg").change(
-				function() {
-					if (this.files && this.files[0]) {
-						var reader = new FileReader;
-						reader.onload = function(data) {
-							$("#prdimg-thum").append(
-									"<img src=" + data.target.result + ">");
-						}
-						reader.readAsDataURL(this.files[0]);
-					}
-				});
 
 		$("#colorInput").click(
 				function() {
@@ -113,7 +104,7 @@
 							</div>
 						</div>
 						<div class="card-body">
-							<form class="form-horizontal" role="form" method="post"
+							<form id="frm" class="form-horizontal" role="form" method="post"
 								action="/adm/product/formInsert.do" name="shopMember"
 								enctype="multipart/form-data">		
 								<div class="form-group" id="divPassword">
@@ -192,9 +183,7 @@
 									<label for="inputNickname" class="col-lg-2 control-label">상품
 										설명</label>
 									<div class="col-lg-10">
-										<input name="prdDes" type="text" class="form-control"
-											id="nickname" data-rule-required="true"
-											placeholder="상품 설명을 입력해주세요">
+										<textarea name="prdDes" id="prdDes" cols="30" rows="30"></textarea>
 									</div>
 								</div>
 
@@ -202,14 +191,32 @@
 									<label for="inputEmail" class="col-lg-2 control-label">이미지
 										등록</label>
 									<div class="col-lg-10">
-										<input name="file" type="file" class="form-control"
-											id="prdimg" data-rule-required="true">
+										<input name="file" type="file" class="form-control prdimg"
+											id="prdimg1" data-rule-required="true">
 									</div>
-									<div id="prdimg-thum"></div>
+									<div id="prdimg-thum1"></div>
+								</div>
+								<div class="form-group" id="divEmail">
+									<label for="inputEmail" class="col-lg-2 control-label">이미지
+										등록</label>
+									<div class="col-lg-10">
+										<input name="file" type="file" class="form-control prdimg"
+											id="prdimg2" data-rule-required="true">
+									</div>
+									<div id="prdimg-thum2"></div>
+								</div>
+								<div class="form-group" id="divEmail">
+									<label for="inputEmail" class="col-lg-2 control-label">이미지
+										등록</label>
+									<div class="col-lg-10">
+										<input name="file" type="file" class="form-control prdimg"
+											id="prdimg3" data-rule-required="true">
+									</div>
+									<div id="prdimg-thum3"></div>
 								</div>
 								<div class="form-group">
 									<div class="col-lg-offset-2 col-lg-10">
-										<button type="submit"
+										<button type="submit" id="saveButton"
 											class="btn btn-default">상품 등록</button>
 									</div>
 								</div>
@@ -227,6 +234,48 @@
 	<!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
+<script>
+	var ckeditor_config = {
+			resize_enaleb : false,
+			enterMode : CKEDITOR.ENTER_BR,
+			shiftEnterMode : CKEDITOR.ENTER_P,
+			filebrowserUploadUrl : "/editorUpload.do"
+	};
+	CKEDITOR.replace("prdDes", ckeditor_config);
+</script>
+<!--
+<script type="text/javascript">
+	$(function(){
+			var oEditors = [];
+			
+			nhn.husky.EZCreator.createInIFrame({
+				oAppRef: oEditors,
+				elPlaceHolder: "prdDes",
+				sSkinURI: "/resources/smarteditor/SmartEditor2Skin.html",
+				htParams : {
+					//툴바 사용 여부 (true : 사용 / false : 사용하지 않음)
+					bUseToolbar : true,
+					// 입력창 크기 조절바 사용 여부 (true / 사용 / false : 사용하지 않음)
+					bUseVerticalResizer : true,
+					// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true : 사용 / false : 사용하지 않음)
+					bUseModeChanger: true,
+				}
+			});
+			
+			// 전송버튼 클릭 이벤트
+			$("#saveButton").click(function(){
+				//id가 smarteditor인 textarea에 에디터에서 대입
+				editor.object.getById["prdDes"].exec("UPDATE_CONTENTS_FIELD", []);
+				// 이 부분에 에디터 validation 검증
+				
+				//form submit
+				$("#frm").submit();
+				
+			});
+			
+			
+	});
+</script>
+-->
 <%@ include file="/WEB-INF/views/adm/inc/footer.jsp"%>
 

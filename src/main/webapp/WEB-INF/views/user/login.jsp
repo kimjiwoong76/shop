@@ -10,7 +10,7 @@
 				<h3>${page_name}</h3>
 			</div>
 			<div class="basic-form">
-				<form action="loginProc.do" method="post">
+				<form action="/loginProc.do" method="post">
 					<div class="row-group">
 						<p><input type="text" name="shop_id" class="basic-input" placeholder="아이디"></p>
 						<p><input type="password" name="shop_pwd" class="basic-input" placeholder="비밀번호"></p>
@@ -24,7 +24,7 @@
 					<div class="row-member">
 						<ul>
 							<li>
-								<a href="/register.do">회원가입</a>
+								<a href="/userJoin.do">회원가입</a>
 							</li>
 							<li>
 								<a href="#!">아이디 비밀번호 찾기</a>

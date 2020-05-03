@@ -86,22 +86,21 @@
 				<div class="col-lg-10">
 					<input name="shop_id" type="text" class="form-control onlyAlphabetAndNumber"
 						id="id" data-rule-required="true"
-						value="${shopMember.shop_id}" maxlength="30">
+						value="${userUpdate.shop_id}" maxlength="30">
 				</div>
 			</div>
 			<div class="form-group" id="divPassword">
 				<label for="inputPassword" class="col-lg-2 control-label">패스워드</label>
 				<div class="col-lg-10">
 					<input name="shop_pwd" type="password" class="form-control" id="password"
-						name="excludeHangul" data-rule-required="true" value="${shopMember.shop_pwd }"
-						maxlength="30">
+						name="excludeHangul" data-rule-required="true" maxlength="30">
 				</div>
 			</div>
 			<div class="form-group" id="divName">
 				<label for="inputName" class="col-lg-2 control-label">이름</label>
 				<div class="col-lg-10">
 					<input name="shop_name" type="text" class="form-control onlyHangul" id="name"
-						data-rule-required="true" value="${shopMember.shop_name }"
+						data-rule-required="true" value="${userUpdate.shop_name }"
 						maxlength="15">
 				</div>
 			</div>
@@ -110,7 +109,7 @@
 				<label for="inputNickname" class="col-lg-2 control-label">별명</label>
 				<div class="col-lg-10">
 					<input name="shop_nickname" type="text" class="form-control" id="nickname"
-						data-rule-required="true" value="${shopMember.shop_nickname}" maxlength="15">
+						data-rule-required="true" value="${userUpdate.shop_nickname}" maxlength="15">
 				</div>
 			</div>
 
@@ -118,7 +117,7 @@
 				<label for="inputEmail" class="col-lg-2 control-label">이메일</label>
 				<div class="col-lg-10">
 					<input name="shop_email" type="email" class="form-control" id="email"
-						data-rule-required="true" value="${shopMember.shop_email }" maxlength="40">
+						data-rule-required="true" value="${userUpdate.shop_email }" maxlength="40">
 				</div>
 			</div>
 			<div class="form-group" id="divPhoneNumber">
@@ -126,7 +125,7 @@
 					번호</label>
 				<div class="col-lg-10">
 					<input name="shop_number" type="tel" class="form-control onlyNumber" id="phoneNumber"
-						data-rule-required="true" value="${shopMember.shop_number}"
+						data-rule-required="true" value="${userUpdate.shop_number}"
 						maxlength="11">
 				</div>
 			</div>

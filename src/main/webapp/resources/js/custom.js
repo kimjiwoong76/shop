@@ -27,4 +27,39 @@ $(function(){
 //            $('m-menu-bg').css({"overflow": "", "position" : "static"});
         }
     });
+    
+
+
+    /* Assign actions */
+    
+    	 var subtotal = 0;
+    	 var cartTax = 0;
+    	 var total = 0;
+         $('.product').each(function () {
+             subtotal += parseFloat(uncomma($(this).children('.product-line-price').text()));
+           });
+         total = parseInt(subtotal) + 2500;
+         $(".price-value").text(numberFormat(subtotal));
+         $("#cart-total").text(numberFormat(total));
+    $('.product-removal button').click( function() {
+      removeItem(this);
+    });
+    
+    function uncomma(x){
+		return x.toString().replace(/[^\d]+/g, '');
+	}
+    function numberFormat(x) {
+ 	   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+ 	   
+ 	}
+
+//    /* Remove item from cart */
+//    function removeItem(removeButton)
+//    {
+//      /* Remove row from DOM and recalc cart total */
+//      var productRow = $(removeButton).parent().parent();
+//      productRow.slideUp(fadeTime, function() {
+//        productRow.remove();
+//      });
+//    }
 });

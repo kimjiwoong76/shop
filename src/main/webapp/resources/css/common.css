@@ -8,7 +8,16 @@ Create date : 2018. 11. 1.
 @import url('https://fonts.googleapis.com/css?family=Montserrat:600');
 /* layout */
 
-
+.error{
+	text-align:center;
+	padding:150px 0;
+}
+.error a{
+	display:block;
+	border:1px solid indianred;
+	padding:7px 0;
+	margin-top:10px;
+}
 
 /* form */
 
@@ -96,7 +105,10 @@ header{
 .header_wrap{
     position:relative;
 }
-.member ul{
+.top_header{
+	margin-top:5px;
+}
+.member{
     float:left;
 }
 .member ul li{
@@ -119,9 +131,39 @@ header{
     display:inline-block;
 }
 .search_cart li a{
-    display:block;
+    display:inline-block;
     padding:5px 10px;
     box-sizing:border-box;
+}
+.search_cart li span{
+	display:inline-block;
+	position:relative;
+	width:0;
+	overflow:hidden;
+	transition:all 0.5s;
+	vertical-align:middle;
+	
+}
+.search_cart li span.on{
+	width:200px;
+}
+.search_cart li span button{
+	position:absolute;
+	top:0;
+	right:0;
+	width:50px;
+	height:30px;
+	line-height:30px;
+	background:#333;
+	color:#fff;
+}
+.search_cart li span input{
+	width:calc(100% - 50px);
+	height:30px;
+	line-height:30px;
+	border:1px solid #dedede;
+	box-sizing:border-box;
+	background:rgba(255,255,255,0.9);
 }
 .logo{
     position:absolute;

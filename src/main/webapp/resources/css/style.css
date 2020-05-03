@@ -114,9 +114,23 @@
 .arrival-item .arrival-slide .arrival-slide-item{
     text-align:center;
 }
+.arrival-slide-item .arrival-img{
+	position:relative;
+	overflow:hidden;
+}
+.arrival-slide-item .arrival-img:before{
+	content:"";
+	display:block;
+	padding-top:100%;
+}
 .arrival-slide-item .arrival-img img{
     max-width:100%;
-    display:inline-block;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
 }
 .arrival-txt{
     text-align:center;

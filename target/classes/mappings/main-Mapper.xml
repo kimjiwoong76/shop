@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jw.shop.mapper.MainMapper">
+
+	<select id="newItem" resultType="map">
+		select * from tbl_goods order by PRDNUM desc
+	</select>
+	<select id="girlItem" resultType="map">
+		select * from 
+		( select * from tbl_goods where CATECODE = '여자 의류' order by prdnum desc)
+		where 5 >= ROWNUM
+	</select>
+
+</mapper>

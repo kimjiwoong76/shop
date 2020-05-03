@@ -32,9 +32,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="top_header clearfix">
-					<div class="member">
+					<div class="member clearfix">
 						<c:choose>
-							<c:when test="${shopMember eq null }">
+							<c:when test="${shopMember eq null}">
 								<ul>
 									<li><a href="/userJoin.do">Join</a></li>
 									<li><a href="/login.do">Login</a></li>
@@ -52,15 +52,28 @@
 					</div>
 					<div class="search_cart">
 						<ul>
-							<li><a href="#!"> <img src="/resources/img/search.png"
-									alt="">
-							</a></li>
-							<li><a href="#!"> <img src="/resources/img/cart.png"
+							<li>
+								<span>
+									<form action="">
+										<input type="text" name="search" />
+										<button>검색</button>
+									</form>
+								</span>
+								<a href="#!" class="search-btn"> <img src="/resources/img/search.png"
+									alt=""></a>
+							</li>
+							<li><a href="/cart/cart.do"> <img src="/resources/img/cart.png"
 									alt="">
 							</a></li>
 						</ul>
 					</div>
-
+					<script type="text/javascript">
+						$(function(){
+							$(".search-btn").click(function(){
+								$(".search_cart li span").toggleClass("on");
+							});
+						});
+					</script>
 				</div>
 				<div class="header_wrap">
 					<div class="logo">
@@ -104,8 +117,8 @@
 				<ul>
 					<li><a href="/logout.do">logout</a></li>
 					<li><a href="/regUpdate.do">정보수정</a></li>
-					<li><a href="#!">장바구니</a></li>
-					<li><a href="#!">마이리스트</a></li>
+					<li><a href="/cart/cart.do">장바구니</a></li>
+					<li><a href="#!">미정</a></li>
 				</ul>
 			</div>
 			<!--<div class="m-list-member mo-no">

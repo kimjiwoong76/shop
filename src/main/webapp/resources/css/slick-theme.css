@@ -155,7 +155,7 @@
     height: 20px;
     margin: 0 5px;
     padding: 0;
-		background:url(/m2/img/circle-t.png) no-repeat center center;
+		/* background:url(/m2/img/circle-t.png) no-repeat center center; */
 		box-shadow:none;
     cursor: pointer;
 }

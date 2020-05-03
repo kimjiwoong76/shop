@@ -7,29 +7,56 @@
 	<select id="prdSelect" resultType="map">
 		select * from tbl_goods order by PRDNUM desc
 	</select>
+	  <!-- 
 	<select id="prdSelectCATE" resultType="map">
-		select * from tbl_goods where CATECODE = #{cateCode} order by prdnum desc
+		select * from tbl_goods where CATECODE = #{cateCode} AND rownum <![CDATA[>=]]> #{startIndex} AND rownum <![CDATA[<=]]> #{cntPerPage} order by prdnum desc
+	</select>
+	 -->
+	<select id="prdSelectCATE" resultType="map">
+	<!-- 
+		select * from 
+			(select * from tbl_goods where CATECODE = #{cateCode} AND  rownum <![CDATA[>=]]> #{startIndex} order by prdnum desc)
+		where rownum <![CDATA[<=]]> #{cntPerPage}
+		
+	 -->
+		
+		select b.*, rownum from (
+    		select a.*, rownum as rnum from(    
+        		select * from tbl_goods where CATECODE = #{cateCode}
+        		order by prdnum desc
+    		) a
+		) b where rnum <![CDATA[>=]]> #{startIndex} and rnum <![CDATA[<=]]> #{cntPerPage}
+		
 	</select>
 	<select id="prdView" resultType="product">
 		select * from tbl_goods where PRDNUM = #{prdNum}
 	</select>
+	
+	<select id="prdSelectCnt" resultType="int">
+		select count(*) from tbl_goods where CATECODE = #{cateCode}
+	</select>
+	
 
 	<insert id="prdInsert">
-		INSERT INTO tbl_goods (PRDNUM,PRDNAME, CATECODE, PRDPRICE, PRDSTOCK, PRDDES, PRDIMG, PRDCOLOR, PRDSIZE)
-		VALUES (SHOP_SEQ.nextval, #{prdName}, #{cateCode}, #{prdPrice}, #{prdStock}, #{prdDes}, #{prdImg}, #{prdColor}, #{prdSize})
+		INSERT INTO tbl_goods (PRDNUM, PRDNAME, CATECODE, PRDPRICE, PRDSTOCK, PRDDES, PRDIMG, PRDIMG2, PRDIMG3, PRDCOLOR, PRDSIZE)
+		VALUES (SHOP_SEQ.nextval, #{prdName}, #{cateCode}, #{prdPrice}, #{prdStock}, #{prdDes}, #{prdImg}, #{prdImg2}, #{prdImg3}, #{prdColor}, #{prdSize})
 	</insert>
 
-	<update id="prdUpdate">
-		UPDATE tablename1
+	<update id="prdUpdateProc">
+		UPDATE tbl_goods
 		SET
-		columnname1=#{param1}
+		PRDNAME = #{prdName}, CATECODE=#{cateCode}, PRDPRICE = #{prdPrice}, PRDSTOCK = #{prdStock}, PRDDES = #{prdDes}, PRDIMG = #{prdImg}, PRDCOLOR = #{prdColor}, PRDSIZE = #{prdSize}, PRDIMG2 = #{prdImg2}, PRDIMG3 = #{prdImg3}
 		WHERE
-		columnname2 = #{param2}
+		PRDNUM = #{prdNum}
 	</update>
+	
+	<select id="prdUpdate" resultType="product"> 
+		select * from tbl_goods where PRDNUM = #{prdNum}
+	</select> 
 
 	<delete id="prdDelete">
-		DELETE FROM tablename1 WHERE
-		columnname1 = #{param1}
+		DELETE FROM tbl_goods WHERE
+		PRDNUM = #{prdNum}
 	</delete>
 
 </mapper>

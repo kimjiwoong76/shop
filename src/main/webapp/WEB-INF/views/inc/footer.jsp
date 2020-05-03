@@ -85,7 +85,7 @@
                     </ul>
                 </div>
                 <div class="copyright">
-                    <p>COPYRIGHT © 2017 MYSTORY. ALL RIGHTS RESERVED.</p>
+                    <p>COPYRIGHT © 2020 KIMJIWOONG. ALL RIGHTS RESERVED.</p>
                 </div>
             </div>
         </div>

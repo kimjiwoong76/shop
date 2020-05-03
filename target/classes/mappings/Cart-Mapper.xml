@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jw.shop.mapper.CartMapper">
+
+	<resultMap type="product" id="product">
+		<!-- <result column="prdnum" property="prdNum1" /> -->
+		<result column="prdnum" property="prdNum" />
+		<result column="prdname" property="prdName" />
+		<result column="prddes" property="prdDes" />
+		<result column="prdprice" property="prdPrice" />
+		<result column="prdimg" property="prdImg" />
+	</resultMap>
+	<resultMap type="cart" id="cart">
+		<result column="shop_id" property="shop_id" />
+		<result column="prdnum" property="prdNum" />
+		<result column="itemsize" property="itemSize" />
+		<result column="itemcolor" property="itemColor" />
+		<result column="itemname" property="itemName" />
+		<result column="prdimg" property="itemImg"/>
+		<collection property="pvo" resultMap="product" />
+	</resultMap>
+	<select id="cartSelect" resultType="map" resultMap="cart">
+		select 
+			shop_cart.shop_id, shop_cart.prdnum,  shop_cart.itemsize, shop_cart.itemColor, 
+			tbl_goods.prdnum, tbl_goods.prdname, tbl_goods.PRDDES, tbl_goods.prdprice, tbl_goods.prdimg 
+			from shop_cart inner join tbl_goods on shop_cart.prdnum = tbl_goods.prdnum 
+			where shop_cart.shop_id = #{shop_id}
+	</select>
+	<select id="cartCheck" resultType="int">
+		select count(*) from shop_cart where shop_id = #{shop_id} and prdnum = #{prdNum}
+	</select>
+	<!-- 
+	<select id="cartSelect" resultType="map" resultMap="cart">
+		select 
+			shop_cart.prdnum, shop_cart.itemsize, shop_cart.itemColor, 
+			tbl_goods.prdname, tbl_goods.PRDDES, tbl_goods.prdprice, tbl_goods.prdimg 
+			from shop_cart, tbl_goods 
+			where shop_cart.prdnum = tbl_goods.prdnum
+	</select>
+	 -->
+
+	<insert id="cartInsert">
+		INSERT INTO shop_cart (prdNum, shop_id, itemColor, itemSize)
+		VALUES(#{prdNum}, #{shop_id},#{itemColor},#{itemSize})
+	</insert>
+
+	<delete id="cartDelete" parameterType="cart">
+		DELETE FROM shop_cart WHERE
+		prdNum = #{prdNum}
+	</delete>
+
+</mapper>

@@ -1,5 +1,5 @@
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
-            <script type="text/javascript">
+<script type="text/javascript">
                 $(function() {
                     $('.sec1-slide-wrap').slick({
                         slidesToShow: 1,
@@ -102,113 +102,22 @@
                             </a>
                         </div>
                         <div class="arrival-slide-wrap">
-                            <div class="arrival-slide">
-                                <div class="arrival-slide-item">
-                                    <a href="/product/view.do">
-                                        <div class="arrival-img">
-<!--                                            <img src="/resources/img/arrival-img1.jpg" alt="">-->
-                                            <img src="/resources/img/model1.jpg" alt="">
-                                        </div>
-                                        <div class="arrival-txt">
-                                            <p class="item-subject">LIFE Cuffs MTM</p>
-                                            <p class="item-price">$50.80</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="arrival-slide">
-                                <div class="arrival-slide-item">
-                                    <a href="/product/view.do">
-                                        <div class="arrival-img">
-                                            <img src="/resources/img/model1.jpg" alt="">
-                                        </div>
-                                        <div class="arrival-txt">
-                                            <p class="item-subject">Black & Silver Jacket</p>
-                                            <p class="item-price">$50.80</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="arrival-slide">
-                                <div class="arrival-slide-item">
-                                    <a href="/product/view.do">
-                                        <div class="arrival-img">
-<!--                                            <img src="/resources/img/arrival-img3.jpg" alt="">-->
-                                            <img src="/resources/img/model3.jpg" alt="">
-                                        </div>
-                                        <div class="arrival-txt">
-                                            <p class="item-subject">Power Leggins</p>
-                                            <p class="item-price">$50.80</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="arrival-slide">
-                                <div class="arrival-slide-item">
-                                    <a href="/product/view.do">
-                                        <div class="arrival-img">
-<!--                                            <img src="/resources/img/arrival-img4.jpg" alt="">-->
-                                            <img src="/resources/img/model4.jpg" alt="">
-                                        </div>
-                                        <div class="arrival-txt">
-                                            <p class="item-subject">W Olive MTM</p>
-                                            <p class="item-price">$50.80</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="arrival-slide">
-                                <div class="arrival-slide-item">
-                                    <a href="/product/lview.do">
-                                        <div class="arrival-img">
-                                            <img src="/resources/img/model1.jpg" alt="">
-                                        </div>
-                                        <div class="arrival-txt">
-                                            <p class="item-subject">LIFE Cuffs MTM</p>
-                                            <p class="item-price">$50.80</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="arrival-slide">
-                                <div class="arrival-slide-item">
-                                    <a href="/product/view.do">
-                                        <div class="arrival-img">
-                                            <img src="/resources/img/model1.jpg" alt="">
-                                        </div>
-                                        <div class="arrival-txt">
-                                            <p class="item-subject">Black & Silver Jacket</p>
-                                            <p class="item-price">$50.80</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="arrival-slide">
-                                <div class="arrival-slide-item">
-                                    <a href="/product/view.do">
-                                        <div class="arrival-img">
-                                            <img src="/resources/img/model3.jpg" alt="">
-                                        </div>
-                                        <div class="arrival-txt">
-                                            <p class="item-subject">Power Leggins</p>
-                                            <p class="item-price">$50.80</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="arrival-slide">
-                                <div class="arrival-slide-item">
-                                    <a href="/product/view.do">
-                                        <div class="arrival-img">
-                                            <img src="/resources/img/model4.jpg" alt="">
-                                        </div>
-                                        <div class="arrival-txt">
-                                            <p class="item-subject">W Olive MTM</p>
-                                            <p class="item-price">$50.80</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                            <c:forEach var="result" items="${newItem.newItem}">
+                            	<div class="arrival-slide">
+	                                <div class="arrival-slide-item">
+	                                    <a href="/product/view.do?prdNum=${result.PRDNUM}">
+	                                        <div class="arrival-img">
+	<!--                                            <img src="/resources/img/arrival-img1.jpg" alt="">-->
+	                                            <img src="${result.PRDIMG}" alt="">
+	                                        </div>
+	                                        <div class="arrival-txt">
+	                                            <p class="item-subject">${result.PRDNAME}</p>
+	                                            <p class="item-price">$ ${result.PRDPRICE}</p>
+	                                        </div>
+	                                    </a>
+	                                </div>
+	                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
@@ -252,7 +161,7 @@
                 <div class="main-best-item sec3-item">
                     <a href="/product/list.do">
                         <div class="main-best-item-txt layer-item-txt">
-                            <h3>BEST ITEM</h3>
+                            <h3>Man</h3>
                             <p>Lorem ipsum dummy text is heavy <br>
                                 text lorem ipsum text is works.</p>
                         </div>
@@ -261,7 +170,7 @@
                 <div class="main-unique-item sec3-item">
                     <a href="/product/list.do">
                         <div class="main-unique-item-txt layer-item-txt">
-                            <h3>UNIQUE</h3>
+                            <h3>Woman</h3>
                             <p>Lorem ipsum dummy text is heavy <br>
                                 text lorem ipsum text is works.</p>
                         </div>
@@ -289,53 +198,22 @@
                         </a>
                     </div>
                     <div class="sec3-slide-wrap">
-                        <div class="arrival-slide">
-                            <div class="arrival-slide-item">
-                               <a href="#!">
-                                    <div class="arrival-img">
-<!--                                        <img src="/resources/img/arrival-img1.jpg" alt="">-->
-                                        <img src="/resources/img/model2.jpg" alt="">
-                                    </div>
-                                    <div class="arrival-txt">
-                                        <p class="item-subject">LIFE Cuffs MTM</p>
-                                        <p class="item-price">$50.80</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="arrival-slide">
-                            <div class="arrival-slide-item">
-                                <div class="arrival-img">
-                                    <img src="/resources/img/model2.jpg" alt="">
-                                </div>
-                                <div class="arrival-txt">
-                                    <p class="item-subject">Black & Silver Jacket</p>
-                                    <p class="item-price">$50.80</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="arrival-slide">
-                            <div class="arrival-slide-item">
-                                <div class="arrival-img">
-                                    <img src="/resources/img/arrival-img1.jpg" alt="">
-                                </div>
-                                <div class="arrival-txt">
-                                    <p class="item-subject">LIFE Cuffs MTM</p>
-                                    <p class="item-price">$50.80</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="arrival-slide">
-                            <div class="arrival-slide-item">
-                                <div class="arrival-img">
-                                    <img src="/resources/img/arrival-img2.jpg" alt="">
-                                </div>
-                                <div class="arrival-txt">
-                                    <p class="item-subject">Black & Silver Jacket</p>
-                                    <p class="item-price">$50.80</p>
-                                </div>
-                            </div>
-                        </div>
+                    	<c:forEach var="result" items="${newItem.girlItem}">
+                    		<div class="arrival-slide">
+	                            <div class="arrival-slide-item">
+	                               <a href="/product/view.do?cateCode=${result.PRDNUM}">
+	                                    <div class="arrival-img">
+	<!--                                        <img src="/resources/img/arrival-img1.jpg" alt="">-->
+	                                        <img src="${result.PRDIMG}" alt="">
+	                                    </div>
+	                                    <div class="arrival-txt">
+	                                        <p class="item-subject">${result.PRDNAME}</p>
+	                                        <p class="item-price">$ ${result.PRDPRICE}</p>
+	                                    </div>
+	                                </a>
+	                            </div>
+	                        </div>
+                    	</c:forEach>
                     </div>
                 </div>
             </div>

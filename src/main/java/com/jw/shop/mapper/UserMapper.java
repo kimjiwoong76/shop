@@ -1,5 +1,8 @@
 package com.jw.shop.mapper;
 
+import java.util.List;
+import java.util.Map;
+
 import com.jw.shop.domain.UserVO;
 
 public interface UserMapper {
@@ -19,5 +22,9 @@ public interface UserMapper {
 	
 	// 회원탈퇴
 	void userDeleteProc(UserVO vo);
+	
+	// 유저검색
+	
+	List<Map<String, Object>> userSelect(UserVO vo);
 
 }

@@ -83,7 +83,7 @@ public class UserServiceImpl implements UserService {
 			session.setAttribute("shopMember", login);
 			if (login.getShop_id().equals("admin")) {
 				System.out.println("관리자님 환영합니다");
-				return "/adm/index";
+				return "redirect:/adm.do";
 			}
 			return "/index";
 		}

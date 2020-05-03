@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% response.setContentType("text/html; charset=utf-8"); %>
 <%@ include file="/WEB-INF/views/inc/header.jsp"%>
 <div class="sub-layout">
     <div class="sub-visual">
@@ -39,23 +40,25 @@
                                 <ul>
                                     <li>
                                         <a href="#!" class="skin-img-inner-btn">
-                                            <img src="/resources/img/view-skin-img.jpg" alt="">
+                                            <img src="${view.prdImg2}" alt="" />
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#!" class="skin-img-inner-btn">
-                                            <img src="/resources/img/view-skin-img2.jpg" alt="">
+                                            <img src="${view.prdImg3}" alt="" />
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="view-skin-right">
-                            <form action="">
+                            <form action="/product/buy.do" id="viewForm">
+                            <input type="hidden" name="prdNum" value="${view.prdNum}">
                             <h3>${view.prdName}</h3>
-                            <div class="cost-price">
+                            <%-- <div class="cost-price">
                                 <p>${view.prdPrice}</p>
-                            </div>
+                            </div> --%>
+                            <%--  
                             <div class="skin-tab">
                                 <ul>
                                     <li>
@@ -68,16 +71,17 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="skin-tab-content">
+                            --%>
+                            <%-- <div class="skin-tab-content">
                                 <div>
-                                    <p>${view.prdDes}3</p>
+                                    <p>${view.prdDes}</p>
                                 </div>
-                            </div>
+                            </div> --%>
                             <div class="skin-option">
                                 <dl class="clearfix">
                                     <dt>COLOR</dt>
                                     <dd>
-                                        <select name="" id="">
+                                        <select name="itemColor" id="">
                                         	<c:forEach var="color" items="${color}">
                                             <option value="<c:out value='${color}' />">${color}</option>
                                             </c:forEach>
@@ -87,7 +91,7 @@
                                 <dl class="clearfix">
                                     <dt>SIZE</dt>
                                     <dd>
-                                        <select name="" id="">
+                                        <select name="itemSize" id="">
                                             <c:forEach var="size" items="${size}">
                                             <option value="<c:out value='${size}' />">${size}</option>
                                             </c:forEach>
@@ -98,12 +102,15 @@
                             <div class="total-price">
                                 <dl class="clearfix">
                                     <dt>TOTAL</dt>
-                                    <dd>$${view.prdPrice}</dd>
+                                    <dd>${view.prdPrice}</dd>
                                 </dl>
                             </div>
                             <div class="item-shop-cart">
-                                <button type="button">ADD TO CART</button>
+                                <button type="button" id="cart" data-toggle="modal" data-target="#myModal">ADD TO CART</button>
                                 <button type="submit">BUY NOW</button>
+                                <!--  
+                                <a class="submit" href="/product/buy.do">BUY NOW</a>
+                                -->
                             </div>
                             <div class="item-blank">
                                 <div class="item-sns">
@@ -121,7 +128,7 @@
                                     </ul>
                                 </div>
                                 <div class="item-list-page">
-                                    <a href="#!">
+                                    <a href="#!" onClick="history.back();">
                                         LIST
                                     </a>
                                 </div>
@@ -130,7 +137,8 @@
                         </div>
                     </div>
                     <div class="view-detail">
-                        <div class="view-detail-img">
+                    	${view.prdDes}
+                        <!-- <div class="view-detail-img">
                             <img src="/resources/img/view-detail-img.jpg" alt="">
                             <br>
                             <br>
@@ -159,7 +167,7 @@
                                     <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</dd>
                                 </dl>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="recommend">
                         <h4>REcommend Product</h4>
@@ -238,19 +246,46 @@
 <script>
 
 $(function() {
-	// ì´ë¯¸ì§ ìì°½ë³´ê¸°
 	$(".view-skin-img img").click(function() {
 		window.open(this.href, "large_image", "location=yes,links=no,toolbar=no,top=10,left=10,width=600,height=600,resizable=yes,scrollbars=no,status=no");
 		return false;
 	});
-	// ì´ë¯¸ì§ ë¯¸ë¦¬ë³´ê¸°
 	$(".skin-img-inner-btn").bind("click focus", function(){		
 		var img_src = $(this).children('img').attr('src');
 		var img_alt = $(this).children('img').attr('alt');
 		$('.view-skin-img img').attr('src', img_src);
 		$('.view-skin-img img').attr('alt', img_alt);
 	});
+	
+	$("#cart").click(function(){
+		var form = $("#viewForm").serialize();
+		console.log(form);
+		$.ajax({
+		 	contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		    url: "/cart/cartInsert.do",
+		    type: "POST",
+		    data: form,
+		    success: function(data){
+		          alert(data);
+		    },
+		    error: function(data){
+		    	alert("중복된 상품이 카트에 있습니다");
+		    }
+		    /*
+		    error: function (request, status, error){        
+		        var msg = "ERROR : " + request.status + "<br>"
+		      msg +=  + "내용 : " + request.responseText + "<br>" + error;
+		      console.log(msg);              
+		    }
+		    */
+		  });
+	});
+	
 });
+
+
+
+
 </script> 
 
 <%@ include file="/WEB-INF/views/inc/footer.jsp"%>

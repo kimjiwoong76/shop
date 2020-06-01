@@ -55,10 +55,10 @@
                                     <p class="item-subject"><c:out value="${result.PRDNAME}" /></p>
                                     <p class="item-price">$<c:out value="${result.PRDPRICE}" /></p>
                                 </div>
-                                <div class="arrival-icon">
+                                <!-- <div class="arrival-icon">
                                     <span class="new_icon">NEW</span>
                                     <span class="best_icon">BEST</span>
-                                </div>
+                                </div> -->
                             </a>
                         </li>
                     </c:forEach>

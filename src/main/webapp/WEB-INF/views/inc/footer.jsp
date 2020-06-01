@@ -1,10 +1,12 @@
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
     </div>
     <footer>
         <div class="container">
             <div class="row">
                 <div class="foot-menu clearfix">
                     <dl>
-                        <dt>CUSTOMER CARE</dt>
+                        <dt>준비중 입니다.</dt>
                         <dd>
                             <a href="#!">Customer Service</a>
                         </dd>
@@ -19,7 +21,7 @@
                         </dd>
                     </dl>
                     <dl>
-                        <dt>BRAND</dt>
+                        <dt>준비중 입니다.</dt>
                         <dd>
                             <a href="#!">Locations</a>
                         </dd>
@@ -31,7 +33,7 @@
                         </dd>
                     </dl>
                     <dl>
-                        <dt>MY ACCOUNT</dt>
+                        <dt>준비중 입니다.</dt>
                         <dd>
                             <a href="#!">Login / Join us</a>
                         </dd>
@@ -43,15 +45,15 @@
                         </dd>
                     </dl>
                     <dl>
-                        <dt>CONTACT INFO</dt>
+                        <dt>준비중 입니다.</dt>
                         <dd>
                             <a href="#!">Store Locator</a>
                         </dd>
                         <dd>
-                            <a href="#!">Email : mir@webmaking.co.kr</a>
+                            <a href="#!">Email : kingjiwoong@naver.com</a>
                         </dd>
                         <dd>
-                            <a href="#!">TEL : (800)-284-7348</a>
+                            <a href="#!">TEL : (010)-0000-0000</a>
                         </dd>
                     </dl>
                     <dl>
@@ -85,7 +87,7 @@
                     </ul>
                 </div>
                 <div class="copyright">
-                    <p>COPYRIGHT � 2020 KIMJIWOONG. ALL RIGHTS RESERVED.</p>
+                    <p>COPYRIGHT © 2020 KIMJIWOONG. ALL RIGHTS RESERVED.</p>
                 </div>
             </div>
         </div>

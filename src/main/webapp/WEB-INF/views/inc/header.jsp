@@ -54,9 +54,9 @@
 						<ul>
 							<li>
 								<span>
-									<form action="">
-										<input type="text" name="search" />
-										<button>검색</button>
+									<form action="/search.do">
+										<input type="text" name="prdName" />
+										<button type="submit">검색</button>
 									</form>
 								</span>
 								<a href="#!" class="search-btn"> <img src="/resources/img/search.png"

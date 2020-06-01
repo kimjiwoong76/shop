@@ -81,13 +81,21 @@
                                 <dl class="clearfix">
                                     <dt>COLOR</dt>
                                     <dd>
-                                        <select name="itemColor" id="">
-                                        	<c:forEach var="color" items="${color}">
-                                            <option value="<c:out value='${color}' />">${color}</option>
+                                        <select name="itemColor" id="itemColor">
+                                        	<c:forEach var="color" items="${color}"  varStatus="status">
+                                            <option value="<c:out value='${color}'/>" ${status.first ? 'selected="selected"' : '' }>${color}</option>
                                             </c:forEach>
                                         </select>
                                     </dd>
                                 </dl>
+                                <script type="text/javascript">
+                                	$(function(){                                	
+                                		var itemColor = new Array();
+                                		<c:forEach items="${color}" var="color">
+                                			itemColor.push("${color}");
+                                		</c:forEach>
+                                	});
+                                </script>
                                 <dl class="clearfix">
                                     <dt>SIZE</dt>
                                     <dd>

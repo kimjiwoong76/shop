@@ -27,6 +27,8 @@
 					<c:forEach var="result" items="${result}">
 						<div class="product">
 						<input type="hidden" name="prdNum" value="${result.prdNum}" >
+						<input type="hidden" name="prdColor" value="${result.prdColor }" />
+						<input type="hidden" name="prdSize" value="${result.prdSize }" />
 						<div class="product-image">
 							<img src="<c:out value='${result.pvo.prdImg}' />">
 						</div>

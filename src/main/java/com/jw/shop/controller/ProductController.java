@@ -26,10 +26,6 @@ public class ProductController {
 	}
 	
 	
-	@RequestMapping("/search.do")
-	public String Search(@RequestParam(defaultValue="") String search, ProductVO vo, Model model) {
-		return "";
-	}
 	
 	@RequestMapping("/product/list.do")
 	public String list(@RequestParam String cateCode, @RequestParam(defaultValue="1") int curPage, ProductVO vo, Model model) {		

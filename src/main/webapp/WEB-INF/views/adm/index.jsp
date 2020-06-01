@@ -57,10 +57,10 @@
 								<tbody>
 									<c:forEach items="${list}" var="buy_list">
 										<tr>
-											<td>${buy_list.BUY_ITEM}</td>
+											<td>${buy_list.BUY_NAME}</td>
 											<td>${buy_list.BUY_ADDRESS1}${buy_list.BUY_ADDRESS2}
 												${buy_list.BUY_ADDRESS3}</td>
-											<td>${buy_list.BUY_NAME}</td>
+											<td>${buy_list.BUY_ITEM}</td>
 											<td>${buy_list.BUY_SIZE}</td>
 											<td>${buy_list.BUY_COLOR}</td>
 										</tr>

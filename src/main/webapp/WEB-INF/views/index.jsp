@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
 <script type="text/javascript">
                 $(function() {
@@ -61,7 +63,7 @@
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting <br>
                                     industry. Lorem Ipsum has been the industry's standard dummy.</p>
                                 <div class="more-btn">
-                                   <a href="/product/list.do">SHOP NOW</a>
+                                   <a href="/product/list.do?cateCode=남자 의류"">SHOP NOW</a>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +80,7 @@
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting <br>
                                     industry. Lorem Ipsum has been the industry's standard dummy.</p>
                                 <div class="more-btn">
-                                    <a href="/product/list.do">SHOP NOW</a>
+                                    <a href="/product/list.do?cateCode=여자 의류"">SHOP NOW</a>
                                 </div>
                             </div>
                         </div>
@@ -159,7 +161,7 @@
         <div id="section3" class="section">
             <div class="layer clearfix">
                 <div class="main-best-item sec3-item">
-                    <a href="/product/list.do">
+                    <a href="/product/list.do?cateCode=남자 의류">
                         <div class="main-best-item-txt layer-item-txt">
                             <h3>Man</h3>
                             <p>Lorem ipsum dummy text is heavy <br>
@@ -168,7 +170,7 @@
                     </a>
                 </div>
                 <div class="main-unique-item sec3-item">
-                    <a href="/product/list.do">
+                    <a href="/product/list.do?cateCode=여자 의류">
                         <div class="main-unique-item-txt layer-item-txt">
                             <h3>Woman</h3>
                             <p>Lorem ipsum dummy text is heavy <br>
@@ -177,7 +179,7 @@
                     </a>
                 </div>
                 <div class="main-basic-item sec3-item">
-                    <a href="/product/list.do">
+                    <a href="/product/list.do?cateCode=어린이">
                         <div class="main-basic-item-txt layer-item-txt">
                             <h3>BASIC</h3>
                             <p>Lorem ipsum dummy text is heavy <br>
@@ -201,7 +203,7 @@
                     	<c:forEach var="result" items="${newItem.girlItem}">
                     		<div class="arrival-slide">
 	                            <div class="arrival-slide-item">
-	                               <a href="/product/view.do?cateCode=${result.PRDNUM}">
+	                               <a href="/product/view.do?cateCode=여자 의류&prdNum=${result.PRDNUM}">
 	                                    <div class="arrival-img">
 	<!--                                        <img src="/resources/img/arrival-img1.jpg" alt="">-->
 	                                        <img src="${result.PRDIMG}" alt="">
@@ -253,7 +255,7 @@
             });
 
         </script>
-        <div id="section4" class="section white_space">
+        <!-- <div id="section4" class="section white_space">
             <div class="sns-tit">
                 <h2>INSTARGRAM</h2>
                 <div class="sns-tag">
@@ -295,7 +297,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <script>
             $(function() {
                 $('.sns-slide-wrap').slick({

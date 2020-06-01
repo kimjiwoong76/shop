@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.jw.shop.Log4jTest;
 import com.jw.shop.domain.BuyVO;
 import com.jw.shop.domain.ProductVO;
 import com.jw.shop.domain.UserVO;
@@ -20,7 +21,6 @@ import com.jw.shop.service.AdmService;
 @Controller
 public class AdmController {
 	
-	private Logger log = Logger.getLogger(getClass());
 	
 	private final AdmService admService;
 	

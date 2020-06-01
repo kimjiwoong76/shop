@@ -56,7 +56,7 @@ public class ProductServiceImpl implements ProductService {
 	public String prdView(@RequestParam String prdNum, ProductVO vo, Model model) {
 		// vo.setPrdNum(prdNum);
 		ProductVO result = prdMapper.prdView(vo);
-		String[] slice, slice2 = null;
+		String[] slice, slice2;
 		if(result.getPrdSize() != null || result.getPrdColor() != null ) {
 			slice = result.getPrdSize().split(",");
 			slice2 = result.getPrdColor().split(",");
@@ -74,6 +74,8 @@ public class ProductServiceImpl implements ProductService {
 		ProductVO result = prdMapper.prdView(vo);
 		if(userSession != null) {
 			cvo.setShop_id(userSession.getShop_id());
+			result.setPrdSize(cvo.getItemSize());
+			result.setPrdColor(cvo.getItemColor());
 			model.addAttribute("userInfo", userSession);
 			model.addAttribute("result", result);
 			return "/buy/buy";

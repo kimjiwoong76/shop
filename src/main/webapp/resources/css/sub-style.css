@@ -134,6 +134,7 @@
 	bottom:0;
     max-width:100%;
     margin:auto;
+    height:100%;
 }
 .view-skin-img-btn{
     position:absolute;
@@ -296,6 +297,10 @@ select::-ms-expand { display: none; }
     box-sizing:border-box;
     padding:60px 0;
     text-align:center;
+}
+.view-detail img{
+	max-width:100%;
+	height:auto !important;
 }
 .view-detail-txt{
     margin-top:60px;

@@ -1,5 +1,6 @@
 package com.jw.shop.service;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
@@ -33,5 +34,8 @@ public interface UserService {
 	String userJoin(Model model, HttpSession session);
 
 	// 회원가입
-	String userJoinProc(UserVO vo, String command);
+	String userJoinProc(UserVO vo, String command) throws Exception;
+	
+	// 아이디 중복검사
+	String userSelect(Model model, UserVO vo, HttpServletRequest req);
 }

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("utf-8"); %>
+<% response.setContentType("text/html; charset=utf-8"); %>
 <%@ include file="/WEB-INF/views/inc/header.jsp"%>
 <%@ include file="/WEB-INF/views/inc/visual.jsp"%>
 <div class="sub-content">
@@ -59,7 +61,30 @@
 						id="id" data-rule-required="true"
 						placeholder="30자이내의 알파벳, 언더스코어(_), 숫자만 입력 가능합니다." maxlength="30">
 				</div>
+				<div class="idCheck col-lg-10"></div>
 			</div>
+			<script>
+				$(function(){
+					var form = $(".form-horizontal");
+					$("input[name=shop_id]").on("keydown, keyup", function(){
+						var input = {shop_id : $("input[name=shop_id]").val()};
+						console.log(input);
+						$.ajax({
+						 	contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+						    url: "/userSelect.do",
+						    type: "POST",
+						    data: input,
+						    success: function(data){
+						          $(".idCheck").html("<p>"+data+"</p>");
+						          
+						    },
+						    error: function(data){
+						    	alert("에러 입니다.");
+						    }
+						  });
+					});
+				});
+			</script>
 			<div class="form-group" id="divPassword">
 				<label for="inputPassword" class="col-lg-2 control-label">패스워드</label>
 				<div class="col-lg-10">

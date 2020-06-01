@@ -12,6 +12,9 @@ public interface UserMapper {
 	// 로그인
 	UserVO userLoginProc(UserVO vo) throws Exception;
 	
+	// 로그인을 위한 비밀번호 가져오기
+	UserVO userLoginProc2(UserVO vo) throws Exception;
+	
 	// 회원가입
 	void userJoinProc(UserVO vo);
 	

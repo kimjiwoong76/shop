@@ -1,10 +1,14 @@
 package com.jw.shop.service.impl;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.jw.shop.common.Log;
 import com.jw.shop.domain.UserVO;
 import com.jw.shop.mapper.UserMapper;
 import com.jw.shop.service.UserService;
@@ -14,6 +18,9 @@ public class UserServiceImpl implements UserService {
 
 	private final UserMapper userMapper;
 
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
+	
 	public UserServiceImpl(UserMapper userMapper) {
 		this.userMapper = userMapper;
 	}
@@ -30,19 +37,25 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 	
+	//회원가입 process
+	
 	@Override
-	public String userJoinProc(UserVO vo, String command) {
+	public String userJoinProc(UserVO vo, String command) throws Exception {
 		if (command == null) {
 			return "redirect:index.do";
 		} else {
 			System.out.println("회원가입 처리");
+			String encPassword = passwordEncoder.encode(vo.getShop_pwd());
+			vo.setShop_pwd(encPassword);
 			userMapper.userJoinProc(vo);
-			return "/user/reg_welcome";
+			return "/index";
 		}
 	}
 	//회원정보 수정
 	@Override
 	public String userUpdate(UserVO vo, Model model, HttpSession session) {
+		String encPassword = passwordEncoder.encode(vo.getShop_pwd());
+		vo.setShop_pwd(encPassword);
 		UserVO ss = (UserVO) session.getAttribute("shopMember");
 		UserVO userUpdate = userMapper.userUpdate(ss);
 		model.addAttribute("userUpdate", userUpdate);
@@ -73,6 +86,16 @@ public class UserServiceImpl implements UserService {
 	public String loginProc(UserVO vo, Model model, HttpSession session) throws Exception {
 		if(vo.getShop_id() == null) {
 			return "/user/login";
+		}
+		if(vo.getShop_id().equals("admin")) {
+			
+		} else {
+			String rawPassword = userMapper.userLoginProc2(vo).getShop_pwd();
+			String raw = vo.getShop_pwd();
+			System.out.println(rawPassword);
+			if(passwordEncoder.matches(raw, rawPassword)) {
+				System.out.println("로그인 성공");
+			}  
 		}
 		UserVO login = userMapper.userLoginProc(vo);
 		if (login == null) {
@@ -110,6 +133,23 @@ public class UserServiceImpl implements UserService {
 		userMapper.userDeleteProc(vo);
 		session.removeAttribute("shopMember");
 		return "redirect:/index.do";
+	}
+
+
+	@Override
+	public String userSelect(Model model, UserVO vo, HttpServletRequest req) {
+		String check = req.getParameter("shop_id");
+		vo.setShop_id(check);
+		UserVO userId = userMapper.userUpdate(vo);
+		int val = 0;
+		if(userId != null) {
+			val = 1;
+			model.addAttribute("check", val);
+			return "중복되는 아이디가 있습니다.";
+		} else {
+			model.addAttribute("check", val);
+			return "사용 가능한 아이디 입니다.";
+		}		
 	}
 
 	

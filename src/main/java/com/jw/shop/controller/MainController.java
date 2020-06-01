@@ -1,7 +1,10 @@
 package com.jw.shop.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jw.shop.domain.ProductVO;
@@ -17,8 +20,20 @@ public class MainController {
 	}
 	
 	
-	@RequestMapping("/index.do")
-	public String index(ProductVO vo, Model model) {
-		return mainService.index(vo, model);
+	
+	@RequestMapping("/intro.do")
+	public String intro() {
+		return "intro";
 	}
+	
+	@RequestMapping("/index.do")
+	public String index(ProductVO vo, Model model, HttpServletRequest req) {
+		return mainService.index(vo, model, req);
+	}
+	
+	@RequestMapping("/search.do")
+	public String serach(ProductVO vo, Model model) {
+		return mainService.search(vo, model);
+	}
+	
 }

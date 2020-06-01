@@ -90,6 +90,19 @@
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>
+		<!-- AspectJ Tools -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjtools</artifactId>
+		    <version>${org.aspectj-version}</version>
+		</dependency>
+
+		<!-- cglib -->
+  <!-- <dependency>
+   <groupId>cglib</groupId>
+   <artifactId>cglib</artifactId>
+   <version>2.2</version>
+  </dependency> -->
 
 		<!-- Logging -->
 
@@ -201,6 +214,16 @@
 			<artifactId>thumbnailator</artifactId>
 			<version>0.4.8</version>
 		</dependency>
+		
+		
+		<!-- 암호화 -->
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.10</version>
+		</dependency>
+				
 
 
 

@@ -12,5 +12,13 @@
 		( select * from tbl_goods where CATECODE = '여자 의류' order by prdnum desc)
 		where 5 >= ROWNUM
 	</select>
-
+	
+	<select id="searchItem" resultType="product" parameterType="com.jw.shop.domain.ProductVO">
+		select * from tbl_goods
+		WHERE 1=1 
+		<if test="prdName != null and prdName != ''">
+		AND PRDNAME LIKE '%'|| #{prdName} ||'%'
+		</if>
+		order by prdNum desc
+	</select>
 </mapper>

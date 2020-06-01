@@ -108,13 +108,33 @@
 												</table>
 											</div>
 											<div class="buy-btn">
-												<button type="submit">구매하기</button>
+												<button type="submit" onclick="return check();">구매하기</button>
 											</div>
 										</form>
 									</div>
+									
 									<!-- /.card-body -->
 									<!-- /.card-footer-->
 								</div>
+								<script>
+									function check(){
+										if($("input[name=buy_name]").val() == ""){
+											alert("받으시는 분을 입력해 주세요");
+											return false;
+										}
+										if($("input[name=buy_tel]").val() == ""){
+											alert("연락처를 입력해 주세요");
+											return false;
+										}
+										if($("input[name=buy_address1]").val() == ""){
+											alert("주소를 입력해 주세요");
+											return false;
+										}
+										
+										
+										
+									}
+								</script>
 								<!-- /.card -->
 							</div>
 						</div>

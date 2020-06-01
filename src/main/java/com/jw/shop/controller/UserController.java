@@ -1,11 +1,13 @@
 package com.jw.shop.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jw.shop.domain.UserVO;
 import com.jw.shop.service.UserService;
@@ -55,6 +57,14 @@ public class UserController {
 		return userService.userDeleteProc(vo, session);
 	}
 
+	
+	// 회원가입 아이디 중복검사
+	@RequestMapping(value="/userSelect.do", produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String userSelect(Model model, UserVO vo, HttpServletRequest req) {
+		return userService.userSelect(model, vo, req);
+	}
+	
 	// 회원가입 및 정보
 	@RequestMapping("/userJoin.do")
 	public String userJoin(Model model, HttpSession session) {
@@ -62,7 +72,7 @@ public class UserController {
 	}
 
 	@RequestMapping("/userJoinProc.do")
-	public String userJoinProc(UserVO vo, String command) {
+	public String userJoinProc(UserVO vo, String command) throws Exception{
 		return userService.userJoinProc(vo, command);
 	}
 }

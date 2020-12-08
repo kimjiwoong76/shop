@@ -1,7 +1,6 @@
 package com.jw.shop.service.impl;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
@@ -79,10 +78,6 @@ public class AdmServiceImpl implements AdmService {
 			model.addAttribute("paging", paging);
 			return "/adm/index";
 		} else {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.print("<script>alert('관리자만 접근 가능합니다'); history.go(-1);</script>");
-			out.flush();
 			return null;
 		}
 	}

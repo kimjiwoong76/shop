@@ -66,6 +66,12 @@ public class UserController {
 	}
 	
 	// 회원가입 및 정보
+	
+	@RequestMapping("/join.do")
+	public String userRegister(Model model, HttpSession session) {
+		return userService.userRegister(model, session);
+	}
+	
 	@RequestMapping("/userJoin.do")
 	public String userJoin(Model model, HttpSession session) {
 		return userService.userJoin(model, session);

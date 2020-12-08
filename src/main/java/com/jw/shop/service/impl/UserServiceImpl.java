@@ -31,7 +31,8 @@ public class UserServiceImpl implements UserService {
 	public String userJoin(Model model, HttpSession session) {
 		if (session.getAttribute("shopMember") == null) {
 			model.addAttribute("test", "test23");
-			return "/user/register";
+			return "/user/join";
+//			return "/user/register";
 		} else {
 			return "redirect:/index.do";
 		}
@@ -54,20 +55,22 @@ public class UserServiceImpl implements UserService {
 	//회원정보 수정
 	@Override
 	public String userUpdate(UserVO vo, Model model, HttpSession session) {
-		String encPassword = passwordEncoder.encode(vo.getShop_pwd());
-		vo.setShop_pwd(encPassword);
 		UserVO ss = (UserVO) session.getAttribute("shopMember");
+//		String encPassword = passwordEncoder.encode(vo.getShop_pwd());
+//		vo.setShop_pwd(encPassword);
 		UserVO userUpdate = userMapper.userUpdate(ss);
 		model.addAttribute("userUpdate", userUpdate);
 		return "/user/reg_update";
 	}
-
+	// 회원정보 수정 process
 	@Override
 	public String userUpdateProc(UserVO vo, Model model, HttpSession session) {
-		UserVO ss = (UserVO) session.getAttribute("shopMember");
-		vo.setShop_id(ss.getShop_id());
+		String encPassword = passwordEncoder.encode(vo.getShop_pwd());
+		vo.setShop_pwd(encPassword);
+//		UserVO ss = (UserVO) session.getAttribute("shopMember");
+//		vo.setShop_id(ss.getShop_id());
 		userMapper.userUpdateProc(vo);
-		return "/user/reg_update";
+		return "redirect:/index.do";
 	}
 	
 	//로그인
@@ -81,35 +84,34 @@ public class UserServiceImpl implements UserService {
 			return "redirect:/index.do";
 		}
 	}
-
+	
+	
+	// 로그인 process
 	@Override
 	public String loginProc(UserVO vo, Model model, HttpSession session) throws Exception {
 		if(vo.getShop_id() == null) {
 			return "/user/login";
-		}
-		if(vo.getShop_id().equals("admin")) {
-			
 		} else {
 			String rawPassword = userMapper.userLoginProc2(vo).getShop_pwd();
 			String raw = vo.getShop_pwd();
 			System.out.println(rawPassword);
 			if(passwordEncoder.matches(raw, rawPassword)) {
-				System.out.println("로그인 성공");
-			}  
-		}
-		UserVO login = userMapper.userLoginProc(vo);
-		if (login == null) {
-			model.addAttribute("loginNull", "아이디 또는 비밀번호가 틀렸습니다.");
-			return "/user/login";
-		} else {
-			System.out.println("통과");
-			session.setAttribute("shopMember", login);
-			if (login.getShop_id().equals("admin")) {
-				System.out.println("관리자님 환영합니다");
-				return "redirect:/adm.do";
+				// 로그인 성공 (실제 암호와 담긴 암호 디코딩하여 비교)
+				UserVO login = userMapper.userLoginProc(vo);
+				session.setAttribute("shopMember", login);
+				
+				if(login.getShop_id().equals("admin")) {
+					System.out.println("관리자님 환영합니다");
+					return "redirect:/adm.do";
+				} else {
+					return "/index";
+				}
+			} else {
+				model.addAttribute("loginNull", "아이디 또는 비밀번호가 틀렸습니다.");
+				return "/user/login";
 			}
-			return "/index";
 		}
+		
 	}
 
 	@Override
@@ -150,6 +152,12 @@ public class UserServiceImpl implements UserService {
 			model.addAttribute("check", val);
 			return "사용 가능한 아이디 입니다.";
 		}		
+	}
+
+
+	@Override
+	public String userRegister(Model model, HttpSession session) {
+		return "/user/register";
 	}
 
 	

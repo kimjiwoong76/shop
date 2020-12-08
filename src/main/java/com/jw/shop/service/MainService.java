@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
 
+import com.jw.shop.domain.CookieVO;
 import com.jw.shop.domain.ProductVO;
 
 public interface MainService {

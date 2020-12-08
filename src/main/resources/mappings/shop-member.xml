@@ -11,9 +11,13 @@
 		/> <result property="param3" column="columnname3" /> </resultMap> <select 
 		id="getAll" resultMap="YourResultSet"> SELECT * FROM tablename1 </select> -->
 		
-	
+	<!--
 	<select id="userLoginProc" resultType="regMember">
 		select shop_id, shop_pwd from shop_member where shop_id = #{shop_id} and shop_pwd = #{shop_pwd}
+	</select>
+	-->
+	<select id="userLoginProc" resultType="regMember">
+		select shop_id from shop_member where shop_id = #{shop_id}
 	</select>
 	<select id="userLoginProc2" resultType="regMember">
 		select shop_id, shop_pwd from shop_member where shop_id = #{shop_id}

@@ -8,6 +8,39 @@ Create date : 2018. 11. 1.
 @import url('https://fonts.googleapis.com/css?family=Montserrat:600');
 /* layout */
 
+
+.banner{
+	position:fixed;
+	top:0;
+	right:-200px;
+	z-index:99999;
+}
+-ms-.banner{
+	right:-150px;
+} 
+.banner a.banner-btn{
+	display:block;
+	background:#fff;
+	padding:10px;
+	box-sizing:border-box;
+	border-radius:0 0 0 10px;
+	border-left:1px solid #333;
+	border-bottom:1px solid #333;
+	position:absolute;
+	top:0;
+	left:-53px;
+	z-index:999;
+	display:none;
+}
+
+.banner-box{
+	width:200px;
+	background:#fff;
+	height:100vh;
+}
+
+
+
 .error{
 	text-align:center;
 	padding:150px 0;

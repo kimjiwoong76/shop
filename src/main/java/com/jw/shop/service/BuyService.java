@@ -6,5 +6,5 @@ import com.jw.shop.domain.BuyVO;
 
 public interface BuyService {
 	
-	String buyProc(BuyVO vo, Model model);
+	String buyProc(BuyVO vo, Model model) throws Exception;
 }

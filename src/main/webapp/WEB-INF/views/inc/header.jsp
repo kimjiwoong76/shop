@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String cp = request.getContextPath();
+	request.setCharacterEncoding("UTF-8");
+	
+	
+	
+	
+	
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -18,7 +27,7 @@
 <link rel="stylesheet" href="<c:url value="/resources/css/slick.css" />">
 <link rel="stylesheet"
 	href="<c:url value="/resources/css/slick-theme.css" />">
-
+<link rel="stylesheet" href="/resources/css/form.css" />
 <script type="text/javascript"
 	src="<c:url value="/resources/js/jquery-1.8.3.min.js"/>"></script>
 <script type="text/javascript"
@@ -28,6 +37,23 @@
 </head>
 
 <body>
+	<div class="banner">
+		<a href="#!" class="banner-btn">
+			<img src="/resources/img/cart-btn.png" alt="" />
+		</a>
+		<div class="banner-box">
+			<p>최근 본 상품</p>
+			<ul>
+				<li>
+					<a href="#!">
+						<span class="prd-pic">
+							<img src="/resources/img/cart-btn.png" alt="" />
+						</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
 	<header>
 		<div class="container">
 			<div class="row">

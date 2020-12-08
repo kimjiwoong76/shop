@@ -1,6 +1,5 @@
 package com.jw.shop.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -42,7 +41,9 @@ public class ProductServiceImpl implements ProductService {
 	        int listCnt = prdMapper.prdSelectCnt(vo);
 	        Paging paging = new Paging(listCnt, curPage);
 	        vo.setStartIndex(paging.getStartIndex());
-	        vo.setCntPerPage(paging.getPageSize());
+	        System.out.println(paging.getStartIndex());
+	        vo.setCntPerPage(paging.getPageIndex());
+	        System.out.println(paging.getPageIndex());
 			List<Map<String, Object>> result = prdMapper.prdSelectCATE(vo);
 			model.addAttribute("cate", vo.getCateCode());
 			model.addAttribute("result", result);
@@ -71,6 +72,7 @@ public class ProductServiceImpl implements ProductService {
 	public String buy(UserVO uvo, ProductVO vo, CartVO cvo, Model model, HttpSession session) {
 		// TODO Auto-generated method stub
 		UserVO userSession = (UserVO) session.getAttribute("shopMember");
+			
 		ProductVO result = prdMapper.prdView(vo);
 		if(userSession != null) {
 			cvo.setShop_id(userSession.getShop_id());

@@ -4,6 +4,24 @@ $(function(){
         $(this).toggleClass("is-active");
 
     });
+    
+    $(window).scroll(function(){
+    	var scr = $(window).scrollTop();
+    	if(scr > 300){
+    		$(".banner-btn").slideDown(150);
+    	} else {
+    		if($(".banner").css("right") != "0px"){
+    			$(".banner-btn").slideUp(150);
+    		}
+    	}
+    });
+    $(".banner a").click(function(){
+    	alert("최근 본 상품을 만들기 위한 버튼 입니다");
+    	$(".banner").animate({
+    		right: 0
+    	});
+    });
+    
 
     $(".hamburger").click(function () {
 

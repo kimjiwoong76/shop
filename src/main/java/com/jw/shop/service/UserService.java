@@ -38,4 +38,6 @@ public interface UserService {
 	
 	// 아이디 중복검사
 	String userSelect(Model model, UserVO vo, HttpServletRequest req);
+
+	String userRegister(Model model, HttpSession session);
 }

@@ -3,37 +3,48 @@
 <%@ include file="/WEB-INF/views/inc/header.jsp"%>
 <%@ include file="/WEB-INF/views/inc/visual.jsp"%>
 <div class="sub-content">
-	<div class="container">
-		<div class="row">
-			<div class="sub-tit">
-				<p>Member ship</p>
-				<h3>${page_name}</h3>
-			</div>
-			<div class="basic-form">
-				<form action="/loginProc.do" method="post">
-					<div class="row-group">
-						<p><input type="text" name="shop_id" class="basic-input" placeholder="아이디"></p>
-						<p><input type="password" name="shop_pwd" class="basic-input" placeholder="비밀번호"></p>
-						<c:if test="${not empty loginNull}">
-							<p class="no_id_pw"><em>${loginNull}</em></p>
-						</c:if>
-					</div>
-					<div class="row-btn">
-						<button type="submit" class="login-btn">로그인</button>
-					</div>
-					<div class="row-member">
-						<ul>
-							<li>
-								<a href="/userJoin.do">회원가입</a>
-							</li>
-							<li>
-								<a href="#!">아이디 비밀번호 찾기</a>
-							</li>
-						</ul>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
+<div class="form">
+        <div class="form_head">
+            <p>LOGIN</p>
+        </div>
+        <div class="login_inner">
+            <div class="form_inner">
+                <form action="/loginProc.do" method="POST">
+                    <div class="login_form clearfix">
+                        <div class="login_input_area">
+                            <div class="id_area input_area">
+                                <input type="text" name="shop_id" placeholder="아이디">
+                            </div>
+                            <div class="pw_area input_area">
+                                <input type="password" name="shop_pwd" placeholder="비밀번호">
+                            </div>
+                            <c:if test="${not empty loginNull}">
+								<p class="no_id_pw"><em>${loginNull}</em></p>
+							</c:if>
+                        </div>
+                        <div class="login_form_btn">
+                            <button class="login_form_submit">로그인</button>
+                        </div>
+                    </div>
+                    <div class="check_area clearfix">
+                        <div class="find_info">
+                            <a href="#!">아이디찾기</a>
+                            <a href="#!">비밀번호찾기</a>
+                        </div>
+                        <div class="login_check">
+                            <input type="checkbox" id="auto_login" class="form_chk_btn">
+                            <label for="auto_login">자동로그인</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="form_inner">
+                <div class="login_member clearfix">
+                    <p class="login_inner_info">처음 이용하시거나 아직 회원이 아니신가요?</p>
+                    <a href="/userJoin.do" class="member_page">회원가입</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 <%@ include file="/WEB-INF/views/inc/footer.jsp"%>

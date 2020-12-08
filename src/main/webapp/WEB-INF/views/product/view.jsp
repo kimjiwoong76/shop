@@ -38,6 +38,11 @@
                             </div>
                             <div class="view-skin-img-btn">
                                 <ul>
+                                	<li>
+                                        <a href="#!" class="skin-img-inner-btn">
+                                            <img src="${view.prdImg}" alt="" />
+                                        </a>
+                                    </li>
                                     <li>
                                         <a href="#!" class="skin-img-inner-btn">
                                             <img src="${view.prdImg2}" alt="" />

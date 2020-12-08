@@ -12,9 +12,9 @@ public class Log4jTest {
 		System.out.println("asdf");
 	}
 	public void test() {
-		String d = "홍길동";
-		log.debug("debug");
-		log.info("asdf");
+//		String d = "홍길동";
+//		log.debug("debug");
+//		log.info("asdf");
 	}
 
 }

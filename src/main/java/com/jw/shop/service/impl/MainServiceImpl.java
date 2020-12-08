@@ -5,12 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.jw.shop.domain.CookieVO;
 import com.jw.shop.domain.ProductVO;
 import com.jw.shop.mapper.MainMapper;
 import com.jw.shop.service.MainService;
@@ -27,6 +29,11 @@ public class MainServiceImpl implements MainService {
 	
 	@Override
 	public String index(ProductVO vo, Model model, HttpServletRequest req) {
+		
+		// 쿠키 생성 
+		
+		
+		
 		Map<String, Object> map = new HashMap<>();
 		List<ProductVO> newItem = mainMapper.newItem(vo);
 		List<ProductVO> girlItem = mainMapper.girlItem(vo);

@@ -21,7 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class EditorUpload {
 	// ck 에디터에서 파일 업로드
 	
-	private static final String UPLOAD_PATH = "C:\\jsp\\spring\\spring_project\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp3\\wtpwebapps\\jw\\resources\\upload";
+	private static final String UPLOAD_PATH = "C:\\\\jsp\\\\spring\\\\spring_project\\\\jw\\\\src\\\\main\\\\webapp\\\\resources\\\\upload";
 	@RequestMapping(value = "/editorUpload.do", method = RequestMethod.POST)
 	public void postCKEditorImgUpload(HttpServletRequest req, HttpServletResponse res,
 			@RequestParam MultipartFile upload) throws Exception {

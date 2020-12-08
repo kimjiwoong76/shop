@@ -44,7 +44,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/buy/buyProc.do")
-	public String buyProc(BuyVO vo, Model model) {
+	public String buyProc(BuyVO vo, Model model) throws Exception {
 		return buyService.buyProc(vo, model);
 	}
 	

@@ -23,7 +23,7 @@ public class BuyServiceImpl implements BuyService {
 	}
 	
 	@Override
-	public String buyProc(BuyVO vo, Model model) {
+	public String buyProc(BuyVO vo, Model model) throws Exception {
 		System.out.println(vo.toString());
 		int result = buyMapper.buyIns(vo);
 		if(result == 1) {

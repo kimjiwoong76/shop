@@ -2,7 +2,7 @@ package com.jw.shop.util;
 
 public class Paging {
     /** 한 페이지당 게시글 수 **/
-    private int pageSize = 12;
+    private int pageSize = 8;
     
     /** 한 블럭(range)당 페이지 수 **/
     private int rangeSize = 10;
@@ -39,6 +39,7 @@ public class Paging {
     /** 페이지 between **/
     private int pageIndex;
     
+    
 	
     
 
@@ -67,6 +68,7 @@ public class Paging {
         
         /** DB 질의를 위한 startIndex 설정 **/
         setStartIndex(curPage);
+        setPageIndex(curPage);
     }
     
     
@@ -96,11 +98,17 @@ public class Paging {
         this.curRange = (int)((curPage-1)/rangeSize) + 1;
     }
     public void setStartIndex(int curPage) {
-        this.startIndex = (curPage-1) * pageSize;
+        this.startIndex = ((curPage-1) * pageSize) + 1;
     }
     
     
-    public int getPageIndex() {
+    
+    public void setPageIndex(int curPage) {
+		this.pageIndex = curPage * pageSize;
+	}
+
+
+	public int getPageIndex() {
 		return pageIndex;
 	}
 

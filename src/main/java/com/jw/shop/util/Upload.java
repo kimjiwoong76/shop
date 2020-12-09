@@ -18,9 +18,12 @@ import net.coobird.thumbnailator.Thumbnails;
 @Service
 public class Upload {
 	
-	private static final String UPLOAD_PATH = "C:\\jsp\\spring\\spring_project\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp3\\wtpwebapps\\jw\\resources\\upload";
+//	private static final String UPLOAD_PATH = "C:\\jsp\\spring\\spring_project\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp6\\wtpwebapps\\jw\\resources\\upload";
+//	private static final String SERVER_PATH = "/resources/upload/thumb/";
+//	private static final String THUMBNAIL =  "C:\\jsp\\spring\\spring_project\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp6\\wtpwebapps\\jw\\resources\\upload\\thumb";
+	private static final String UPLOAD_PATH = "C:\\jsp\\spring\\upload";
 	private static final String SERVER_PATH = "/resources/upload/thumb/";
-	private static final String THUMBNAIL =  "C:\\jsp\\spring\\spring_project\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp3\\wtpwebapps\\jw\\resources\\upload\\thumb";
+	private static final String THUMBNAIL =  "C:\\\\jsp\\\\spring\\\\upload";
 	
 	public void saveFile(ProductVO vo, MultipartHttpServletRequest file, Model model) throws IOException {
 		// TODO Auto-generated method stub

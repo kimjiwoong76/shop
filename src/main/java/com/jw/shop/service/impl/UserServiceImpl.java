@@ -160,6 +160,36 @@ public class UserServiceImpl implements UserService {
 		return "/user/register";
 	}
 
+
+	
+	
+	@Override
+	public String userFindId(UserVO vo, Model model) throws Exception {
+		// TODO Auto-generated method stub
+		return "/user/find";
+	}
+
+
+	@Override
+	public String userFindIdProc(UserVO vo, Model model) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("asdf");
+		System.out.println(vo);
+		UserVO result = userMapper.userFindId(vo);
+		if(result != null) {
+			System.out.println();
+			int check = 1;
+			model.addAttribute("userFindId", result);
+			model.addAttribute("check", check);
+			System.out.println(check);
+		} else {
+			int check = 2;
+			model.addAttribute("check", check);
+			System.out.println(check);
+		}
+		return "/user/find"
+	}
+
 	
 
 }

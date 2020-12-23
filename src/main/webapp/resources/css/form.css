@@ -446,6 +446,40 @@
     color:#232323;
     margin-bottom:30px;
 }
+.find_input_area{
+	text-align:center;
+}
+.find_input_area input{
+	width:100%;
+	border:1px solid #ddd;
+	box-sizing:border-box;
+	max-width:320px;
+	padding:10px;
+}
+.find_input_area p{
+	margin-top:10px;
+}
+.find_input_area button{
+	padding:10px;
+    box-sizing:border-box;
+    background:#222222;
+    color:#fff;
+    font-size:14px;
+    font-weight:700;
+    max-width:320px;
+    width:100%;
+}
+.find_input_area a{
+	display:inline-block;
+	padding:10px;
+    box-sizing:border-box;
+    background:#eee;
+    color:#666;
+    font-size:14px;
+    font-weight:700;
+    max-width:320px;
+    width:100%;
+}
 
 @media (max-width:991px){
     .register_head .register_head_tit{

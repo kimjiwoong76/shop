@@ -3,37 +3,42 @@
 <%@ include file="/WEB-INF/views/inc/header.jsp"%>
 <%@ include file="/WEB-INF/views/inc/visual.jsp"%>
 <div class="sub-content">
-	<div class="container">
-		<div class="row">
-			<div class="sub-tit">
-				<p>Member ship</p>
-				<h3>${page_name}</h3>
-			</div>
-			<div class="basic-form">
-				<form action="/loginProc.do" method="post">
-					<div class="row-group">
-						<p><input type="text" name="shop_id" class="basic-input" placeholder="아이디"></p>
-						<p><input type="password" name="shop_pwd" class="basic-input" placeholder="비밀번호"></p>
-						<c:if test="${not empty loginNull}">
-							<p class="no_id_pw"><em>${loginNull}</em></p>
-						</c:if>
-					</div>
-					<div class="row-btn">
-						<button type="submit" class="login-btn">로그인</button>
-					</div>
-					<div class="row-member">
-						<ul>
-							<li>
-								<a href="/userJoin.do">회원가입</a>
-							</li>
-							<li>
-								<a href="#!">아이디 비밀번호 찾기</a>
-							</li>
-						</ul>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+<div class="form">
+        <div class="form_head">
+            <p>아이디찾기</p>
+        </div>
+        <div class="login_inner">
+            <div class="form_inner">
+                
+                    <div class="login_form clearfix">
+                    <c:set var='check' value="${check}" />
+                    <c:if test="${check == 1}">
+						<p>${userFindId}</p>
+						<p>${check}</p>
+						<p>1</p>
+					</c:if>
+					<c:if test="${check == 2}">
+					<form action="/find_idProc.do" method="POST">
+						<div class="find_input_area">
+							<input type="text" name="shop_email" placeholder="이메일을 입력해주세요" />
+							<p>
+								<button type="submit" class="login_form_submit">아이디 찾기</button>
+							</p>
+							<p>
+								<a href="#!">비밀번호 찾기</a>
+							</p>
+						</div>
+					</form>
+					</c:if>
+                    </div>
+            </div>
+            <div class="form_inner">
+                <div class="login_member clearfix">
+                    <p class="login_inner_info">처음 이용하시거나 아직 회원이 아니신가요?</p>
+                    <a href="/userJoin.do" class="member_page">회원가입</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <%@ include file="/WEB-INF/views/inc/footer.jsp"%>

@@ -22,6 +22,9 @@
 	<select id="userLoginProc2" resultType="regMember">
 		select shop_id, shop_pwd from shop_member where shop_id = #{shop_id}
 	</select>
+	<select id="userFindId" resultType="regMember">
+		select * from shop_member where shop_email = #{shop_email}
+	</select>
 	
 	<insert id="userJoinProc">
 		INSERT INTO shop_member

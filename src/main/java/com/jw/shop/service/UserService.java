@@ -40,4 +40,9 @@ public interface UserService {
 	String userSelect(Model model, UserVO vo, HttpServletRequest req);
 
 	String userRegister(Model model, HttpSession session);
+	
+	//아이디 찾기
+	String userFindId(UserVO vo, Model model) throws Exception;
+	
+	String userFindIdProc(UserVO vo, Model model) throws Exception;
 }

@@ -18,9 +18,9 @@
                             <div class="pw_area input_area">
                                 <input type="password" name="shop_pwd" placeholder="비밀번호">
                             </div>
-                            <c:if test="${not empty loginNull}">
+                            <%-- <c:if test="${not empty loginNull}">
 								<p class="no_id_pw"><em>${loginNull}</em></p>
-							</c:if>
+							</c:if> --%>
                         </div>
                         <div class="login_form_btn">
                             <button class="login_form_submit">로그인</button>
@@ -28,13 +28,13 @@
                     </div>
                     <div class="check_area clearfix">
                         <div class="find_info">
-                            <a href="#!">아이디찾기</a>
+                            <a href="/find_id.do">아이디찾기</a>
                             <a href="#!">비밀번호찾기</a>
                         </div>
-                        <div class="login_check">
+                        <!-- <div class="login_check">
                             <input type="checkbox" id="auto_login" class="form_chk_btn">
                             <label for="auto_login">자동로그인</label>
-                        </div>
+                        </div> -->
                     </div>
                 </form>
             </div>

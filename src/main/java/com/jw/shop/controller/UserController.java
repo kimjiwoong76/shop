@@ -58,6 +58,16 @@ public class UserController {
 	}
 
 	
+	// 아이디 찾기
+	@RequestMapping("/find_id.do")
+	public String userFindId(UserVO vo, Model model) throws Exception {
+		return userService.userFindId(vo, model);
+	}
+	@RequestMapping("/find_idProc.do")
+	public String userFindIdProc(UserVO vo, Model model) throws Exception {
+		return userService.userFindIdProc(vo, model);
+	}
+	
 	// 회원가입 아이디 중복검사
 	@RequestMapping(value="/userSelect.do", produces = "application/text; charset=utf8")
 	@ResponseBody
@@ -81,4 +91,7 @@ public class UserController {
 	public String userJoinProc(UserVO vo, String command) throws Exception{
 		return userService.userJoinProc(vo, command);
 	}
+	
+	
+	
 }

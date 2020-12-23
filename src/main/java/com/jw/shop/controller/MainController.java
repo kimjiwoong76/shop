@@ -26,10 +26,13 @@ public class MainController {
 		return "intro";
 	}
 	
-	@RequestMapping("/")
+	@RequestMapping(value= {"/", "/index.do"})
 	public String index(ProductVO vo, Model model, HttpServletRequest req) {
 		return mainService.index(vo, model, req);
 	}
+	
+	
+	
 	
 	@RequestMapping("/search.do")
 	public String serach(ProductVO vo, Model model) {

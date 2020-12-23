@@ -30,4 +30,6 @@ public interface UserMapper {
 	
 	List<Map<String, Object>> userSelect(UserVO vo);
 
+	UserVO userFindId(UserVO vo);
+
 }

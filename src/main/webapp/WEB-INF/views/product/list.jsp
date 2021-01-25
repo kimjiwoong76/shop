@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/inc/header.jsp"%>
-
+<%@ include file="/WEB-INF/views/inc/visual.jsp"%>
 <script>
 	var cate = '<c:out value="${cate}" />';
 	function fn_paging(curPage) {
@@ -10,11 +10,6 @@
 </script>
 
 <div class="sub-layout">
-    <div class="sub-visual">
-        <div class="sub-visual-txt">
-            <h2>My Life Style</h2>
-        </div>
-    </div>
     <div class="sub-content">
         <div class="container">
             <div class="row">

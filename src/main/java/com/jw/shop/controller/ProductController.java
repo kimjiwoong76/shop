@@ -5,7 +5,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jw.shop.domain.BuyVO;
 import com.jw.shop.domain.CartVO;
@@ -42,10 +44,23 @@ public class ProductController {
 	public String buy(UserVO uvo, ProductVO vo, CartVO cvo, Model model, HttpSession session) {
 		return productService.buy(uvo, vo, cvo, model, session);
 	}
+	@RequestMapping("/product/cart_buy.do")
+	public String cart_buy(UserVO uvo, ProductVO vo, CartVO cvo, Model model, HttpSession session) {
+		return productService.cart_buy(uvo, vo, cvo, model, session);
+	}
+	@RequestMapping("/buy/success.do")
+	public String buy_success(UserVO uvo, ProductVO vo, CartVO cvo, Model model, HttpSession session) {
+		return "/buy/success";
+	}
+	@RequestMapping("/buy/fail.do")
+	public String buy_fail(UserVO uvo, ProductVO vo, CartVO cvo, Model model, HttpSession session) {
+		return "/buy/fail";
+	}
 	
-	@RequestMapping("/buy/buyProc.do")
-	public String buyProc(BuyVO vo, Model model) throws Exception {
-		return buyService.buyProc(vo, model);
+	@RequestMapping(value="/buy/buyProc.do", produces = "application/text; charset=utf8", method=RequestMethod.GET)
+	@ResponseBody
+	public String buyProc(BuyVO vo, Model model, String amount, String buy_name) throws Exception {
+		return buyService.buyProc(vo, model, amount, buy_name);
 	}
 	
 }

@@ -1,6 +1,10 @@
 package com.jw.shop.service.impl;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +12,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.jw.shop.common.Log;
 import com.jw.shop.domain.UserVO;
 import com.jw.shop.mapper.UserMapper;
 import com.jw.shop.service.UserService;
@@ -41,15 +44,34 @@ public class UserServiceImpl implements UserService {
 	//회원가입 process
 	
 	@Override
-	public String userJoinProc(UserVO vo, String command) throws Exception {
+	public String userJoinProc(UserVO vo, String command, Model model, HttpSession session) throws Exception {
 		if (command == null) {
 			return "redirect:index.do";
 		} else {
-			System.out.println("회원가입 처리");
+			/*
+			  System.out.println("회원가입 처리"); 
+			  String encPassword = passwordEncoder.encode(vo.getShop_pwd()); 
+			  vo.setShop_pwd(encPassword);
+			  userMapper.userJoinProc(vo); 
+			  return "/user/welcome";
+			 */
 			String encPassword = passwordEncoder.encode(vo.getShop_pwd());
 			vo.setShop_pwd(encPassword);
-			userMapper.userJoinProc(vo);
-			return "/index";
+			try {
+				userMapper.userJoinProc(vo); // 디비 연결해서 값을 저장해줌
+				System.out.println("회원가입 처리");
+				UserVO login = userMapper.userLoginProc(vo);
+				
+				session.setAttribute("shopMember", login);
+				return "redirect:/user/welcome";
+			} catch(Exception e) {
+				e.printStackTrace();
+				System.out.println("회원가입 처리 실패");
+				return "redirect:/user/fail";
+			}
+			//login 처리
+			
+//			System.out.println(rawPassword);
 		}
 	}
 	//회원정보 수정
@@ -64,12 +86,20 @@ public class UserServiceImpl implements UserService {
 	}
 	// 회원정보 수정 process
 	@Override
-	public String userUpdateProc(UserVO vo, Model model, HttpSession session) {
+	public String userUpdateProc(UserVO vo, Model model, HttpSession session, HttpServletResponse res) throws IOException {
 		String encPassword = passwordEncoder.encode(vo.getShop_pwd());
 		vo.setShop_pwd(encPassword);
 //		UserVO ss = (UserVO) session.getAttribute("shopMember");
 //		vo.setShop_id(ss.getShop_id());
 		userMapper.userUpdateProc(vo);
+//		res.setContentType("text/html; charset=UTF-8");
+//		PrintWriter writer = res.getWriter();
+//		writer.println("<script>");
+//		writer.println("alert('정보 수정이 완료 되었습니다');");
+//		writer.println("location.href= = /index.do");
+//		writer.println("</script>");
+//		writer.flush();
+//		writer.close();
 		return "redirect:/index.do";
 	}
 	
@@ -92,25 +122,30 @@ public class UserServiceImpl implements UserService {
 		if(vo.getShop_id() == null) {
 			return "/user/login";
 		} else {
-			String rawPassword = userMapper.userLoginProc2(vo).getShop_pwd();
-			String raw = vo.getShop_pwd();
-			System.out.println(rawPassword);
-			if(passwordEncoder.matches(raw, rawPassword)) {
-				// 로그인 성공 (실제 암호와 담긴 암호 디코딩하여 비교)
-				UserVO login = userMapper.userLoginProc(vo);
-				session.setAttribute("shopMember", login);
-				
-				if(login.getShop_id().equals("admin")) {
-					System.out.println("관리자님 환영합니다");
-					return "redirect:/adm.do";
-				} else {
-					return "/index";
+			String rawPassword;
+			UserVO rawPassword2 = userMapper.userLoginProc2(vo);
+			if(rawPassword2 != null) {
+				rawPassword = rawPassword2.getShop_pwd();
+				String raw = vo.getShop_pwd();
+				if(passwordEncoder.matches(raw, rawPassword)) {
+					// 로그인 성공 (실제 암호와 담긴 암호 디코딩하여 비교)
+					UserVO login = userMapper.userLoginProc(vo);
+					session.setAttribute("shopMember", login);
+					
+					if(login.getShop_id().equals("admin")) {
+						System.out.println("관리자님 환영합니다");
+						return "redirect:/adm.do";
+					} else {
+						return "/index";
+					}
 				}
 			} else {
+				System.out.println("아이디 비번 틀림");
 				model.addAttribute("loginNull", "아이디 또는 비밀번호가 틀렸습니다.");
 				return "/user/login";
 			}
 		}
+		return "/index";
 		
 	}
 
@@ -165,7 +200,6 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public String userFindId(UserVO vo, Model model) throws Exception {
-		// TODO Auto-generated method stub
 		return "/user/find";
 	}
 
@@ -176,18 +210,16 @@ public class UserServiceImpl implements UserService {
 		System.out.println("asdf");
 		System.out.println(vo);
 		UserVO result = userMapper.userFindId(vo);
+		int check;
 		if(result != null) {
-			System.out.println();
-			int check = 1;
-			model.addAttribute("userFindId", result);
-			model.addAttribute("check", check);
-			System.out.println(check);
+			System.out.println("1");
+			model.addAttribute("userFindId", result.getShop_id());
+			model.addAttribute("check", check = 1);
 		} else {
-			int check = 2;
-			model.addAttribute("check", check);
-			System.out.println(check);
+			System.out.println("asdf2");
+			model.addAttribute("check", check = 2);
 		}
-		return "/user/find"
+		return "/user/find_result";
 	}
 
 	

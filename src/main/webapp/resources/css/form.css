@@ -11,7 +11,7 @@
     text-align:center;
 }
 
-.mir_form{
+.form{
     padding:70px 0;
 }
 .form_head{
@@ -400,7 +400,7 @@
 }
 .register_form_area .register_form_input select {
     width: 100%;
-    padding: 15px;
+    /* padding: 15px; */
     box-sizing: border-box;
     border: 1px solid #dddddd;
     background:url(/img/select-icon.png) no-repeat right 10px center;
@@ -455,6 +455,7 @@
 	box-sizing:border-box;
 	max-width:320px;
 	padding:10px;
+	margin:5px 0;
 }
 .find_input_area p{
 	margin-top:10px;
@@ -480,6 +481,29 @@
     max-width:320px;
     width:100%;
 }
+.find_check{
+	text-align:center;
+	border:1px solid #dedede;
+	box-sizing:border-box;
+	padding:10px 0;
+}
+.find_check p em{
+	color:#b76c6e;
+	font-size:16px;
+	font-weight:500;
+}
+
+.find_out{
+	text-align:center;
+}
+.find_out a{
+	display:inline-block;
+	background:#b76c6e;
+	padding:5px 20px;
+	box-sizing:border-box;
+	color:#fff;
+	border-radius:15px;
+}
 
 @media (max-width:991px){
     .register_head .register_head_tit{
@@ -498,6 +522,10 @@
 }
 
 @media (max-width:750px){
+	.form{
+		padding:0 15px;
+		box-sizing:border-box;
+	}
     .register_form_area .register_form_name{
         display:block;
         width:100%;
@@ -513,4 +541,26 @@
     .register_page .register_page_btn {
         padding: 15px 50px;
     }
+}
+
+.buy_inner{
+	text-align:center;
+	border:1px solid #dedede;
+	max-width:600px;
+	margin:auto;
+	width:100%;
+	padding:20px;
+	box-sizing:border-box;
+}
+.buy_inner p{
+	font-size:30px;
+	font-weight:500;
+	margin-bottom:20px;
+}
+.buy_inner a{
+	display:inline-block;
+	padding:15px 30px;
+	box-sizing:border-box;
+	background:#000;
+	color:#fff;
 }

@@ -29,7 +29,7 @@
                     <div class="check_area clearfix">
                         <div class="find_info">
                             <a href="/find_id.do">아이디찾기</a>
-                            <a href="#!">비밀번호찾기</a>
+                            <a href="/find_pw.do">비밀번호찾기</a>
                         </div>
                         <!-- <div class="login_check">
                             <input type="checkbox" id="auto_login" class="form_chk_btn">

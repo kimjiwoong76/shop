@@ -13,15 +13,15 @@ public class UserVO {
 //		regdate date default SYSDATE
 //	);
 	
-	String shop_id;
-	String shop_pwd;
-	String shop_name;
-	String shop_nickname;
-	String shop_email;
-	String shop_number;
-	String shop_gender;
-	String regdate;
-	String sql_ok;
+	private String shop_id;
+	private String shop_pwd;
+	private String shop_name;
+	private String shop_nickname;
+	private String shop_email;
+	private String shop_number;
+	private String shop_gender;
+	private String regdate;
+	private String sql_ok;
 	
 	public String getSql_ok() {
 		return sql_ok;

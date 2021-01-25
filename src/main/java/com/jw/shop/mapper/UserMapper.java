@@ -22,6 +22,8 @@ public interface UserMapper {
 	UserVO userUpdate(UserVO vo);
 	//회원정보 수정
 	void userUpdateProc(UserVO vo);
+	// 임시비밀번호 발송
+	void userPwUpdateProc(String key);
 	
 	// 회원탈퇴
 	void userDeleteProc(UserVO vo);
@@ -31,5 +33,7 @@ public interface UserMapper {
 	List<Map<String, Object>> userSelect(UserVO vo);
 
 	UserVO userFindId(UserVO vo);
+
+	UserVO userFindPw(String string);
 
 }

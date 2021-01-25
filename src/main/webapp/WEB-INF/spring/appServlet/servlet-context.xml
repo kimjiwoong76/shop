@@ -13,18 +13,22 @@
 	<!-- AOP 사용 -->
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
-	<context:component-scan base-package="com.jw.shop" />
+
+	<context:component-scan
+		base-package="com.jw.shop" />
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<mvc:default-servlet-handler />
 	<!-- location : 물리적 주소 / mapping : 가상 주소 -->
-	<mvc:resources mapping="/resources/**" location="/resources/" />
-	<mvc:resources mapping="/resources/upload/**" location="C:\jsp\spring\spring_project\jw\src\main\webapp\resources\upload\thumb" />
-	<mvc:resources mapping="/jw/images/**" location="C:/upload/" />
+	<mvc:resources mapping="/resources/**"
+		location="/resources/" />
+	<mvc:resources mapping="/resources/upload/**"
+		location="C:\jsp\spring\spring_project\jw\src\main\webapp\resources\upload\thumb" />
+	<mvc:resources mapping="/jw/images/**"
+		location="C:/upload/" />
+	<mvc:resources location="/resources/intro/img/" mapping="img/**"/>
 	<!-- resource mapping -->
-	<!--  
-	<Context docBase="외부 폴더 경로" path="/프로젝트명/하위폴더/" reloadable="true"/>
-	 -->
-	
+	<!-- <Context docBase="외부 폴더 경로" path="/프로젝트명/하위폴더/" reloadable="true"/> -->
+
 
 	<!-- 멀티파트 리졸버 -->
 	<bean id="multipartResolver"
@@ -38,6 +42,38 @@
 	</bean>
 
 
+	<!-- naver mail -->
+	<!-- <bean class="org.springframework.mail.javamail.JavaMailSenderImpl"
+		p:host="smtp.naver.com" p:port="465" p:username="kingjiwoong"
+		p:password="">
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtps.ssl.checkserveridentity">true</prop>
+				<prop key="mail.smtps.ssl.trust">*</prop>
+				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+			</props>
+		</property>
+	</bean> -->
+	<!-- Gmail -->
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="port" value="587" />
+		<property name="username" value="kingjiwoong860706@gmail.com" />
+		<property name="password" value="erdqczbxopjppdeb" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.host">smtp.gmail.com</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+
+
+
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
 	<bean
@@ -45,9 +81,9 @@
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	
-	
-	
+
+
+
 
 
 </beans>

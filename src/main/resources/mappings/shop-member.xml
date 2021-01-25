@@ -17,14 +17,20 @@
 	</select>
 	-->
 	<select id="userLoginProc" resultType="regMember">
-		select shop_id from shop_member where shop_id = #{shop_id}
+		select shop_id, shop_name from shop_member where shop_id = #{shop_id}
 	</select>
 	<select id="userLoginProc2" resultType="regMember">
 		select shop_id, shop_pwd from shop_member where shop_id = #{shop_id}
 	</select>
 	<select id="userFindId" resultType="regMember">
-		select * from shop_member where shop_email = #{shop_email}
+		select shop_id, shop_email from shop_member where shop_email = #{shop_email}
 	</select>
+	<update id="userFindPw" parameterType="regMember"> 
+		UPDATE shop_member 
+		SET 
+			shop_pwd=#{shop_pwd},
+			WHERE shop_id = #{shop_id} 
+	</update> 
 	
 	<insert id="userJoinProc">
 		INSERT INTO shop_member
@@ -55,6 +61,12 @@
 			shop_number=#{shop_number},
 			shop_gender=#{shop_gender} 
 			WHERE shop_id = #{shop_id} 
+	</update> 
+	
+	<update id="userPwUpdateProc" parameterType="regMember"> 
+		UPDATE shop_member 
+		SET 
+			shop_pwd=#{shop_pwd} where shop_id = #{shop_id}
 	</update> 
 	
 	<delete id="userDeleteProc" parameterType="regMember"> 

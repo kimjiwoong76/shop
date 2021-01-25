@@ -23,7 +23,7 @@ public class MainController {
 	
 	@RequestMapping("/intro")
 	public String intro() {
-		return "intro";
+		return "intro3";
 	}
 	
 	@RequestMapping(value= {"/", "/index.do"})

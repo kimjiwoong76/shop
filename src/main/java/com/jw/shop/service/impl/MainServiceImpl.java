@@ -37,8 +37,10 @@ public class MainServiceImpl implements MainService {
 		Map<String, Object> map = new HashMap<>();
 		List<ProductVO> newItem = mainMapper.newItem(vo);
 		List<ProductVO> girlItem = mainMapper.girlItem(vo);
+		List<ProductVO> allItem = mainMapper.allItem(vo);
 		map.put("newItem", newItem);
 		map.put("girlItem", girlItem);
+		map.put("allItem", allItem);
 		model.addAttribute("newItem", map);
 		return "/index";
 	}

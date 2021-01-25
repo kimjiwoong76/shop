@@ -6,122 +6,139 @@
 <%@ include file="/WEB-INF/views/inc/visual.jsp"%>
 <div class="sub-content">
 	<div class="form">
-        <div class="form_head">
-            <p>JOIN US</p>
-        </div>
-        <div class="join_inner">
-            <div class="register_head clearfix">
-                <p class="register_head_tit">가입정보<span>*필수입력항목.</span></p>
-                <ul class="register_seq">
-                    <li>
-                        01 약관동의
-                    </li>
-                    <li class="on">
-                        02 정보입력
-                    </li>
-                    <li>
-                        03 가입완료
-                    </li>
-                </ul>
-            </div>
-            <div class="form_inner">
-                <form class="form-horizontal" role="form" method="post"
-			action="/userJoinProc.do" name="shopMember">
-				<input type="hidden" name="command" value="regform">
-                    <div class="register_form">
-                        <div class="register_form_area clearfix">
-                            <div class="register_form_name">
-                                <p>이름<sup>*</sup></p>
-                            </div>
-                            <div class="register_form_input">
-                                <input type="text" name="shop_name" class="normal_text">
-                            </div>
-                        </div>
-                        <div class="register_form_area clearfix">
-                            <div class="register_form_name">
-                                <p>닉네임<sup>*</sup></p>
-                            </div>
-                            <div class="register_form_input">
-                                <input type="text" name="shop_nickname" class="normal_text" placeholder="공백없이 한글,영문,숫자만 입력 가능(한글2자, 영문4자 이상)">
-                            </div>
-                        </div>
-                        <div class="register_form_area clearfix">
-                            <div class="register_form_name">
-                                <p>이메일<sup>*</sup></p>
-                            </div>
-                            <div class="register_form_input">
-                                <input type="email" name="shop_email" class="normal_text" placeholder="공백없이 한글,영문,숫자만 입력 가능(한글2자, 영문4자 이상)">
-                            </div>
-                        </div>
-                        <div class="register_form_area clearfix">
-                            <div class="register_form_name">
-                                <p>아이디<sup>*</sup></p>
-                            </div>
-                            <div class="register_form_input">
-                                <input type="text" name="shop_id" class="normal_text" placeholder="영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력하세요.">
-                                <div class="idCheck col-lg-10"></div>
-                            </div>
-                            <script>
+		<div class="form_head">
+			<p>JOIN US</p>
+		</div>
+		<div class="join_inner">
+			<div class="register_head clearfix">
+				<p class="register_head_tit">
+					가입정보<span>*필수입력항목.</span>
+				</p>
+				<ul class="register_seq">
+					<li>01 약관동의</li>
+					<li class="on">02 정보입력</li>
+					<li>03 가입완료</li>
+				</ul>
+			</div>
+			<div class="form_inner">
+				<form id="memberForm" class="form-horizontal" role="form" method="post"
+					action="/userJoinProc.do" name="shopMember">
+					<input type="hidden" name="command" value="regform">
+					<div class="register_form">
+						<div class="register_form_area clearfix">
+							<div class="register_form_name">
+								<p>
+									이름<sup>*</sup>
+								</p>
+							</div>
+							<div class="register_form_input">
+								<input type="text" name="shop_name" class="normal_text">
+							</div>
+						</div>
+						<div class="register_form_area clearfix">
+							<div class="register_form_name">
+								<p>
+									닉네임<sup>*</sup>
+								</p>
+							</div>
+							<div class="register_form_input">
+								<input type="text" name="shop_nickname" class="normal_text"
+									placeholder="공백없이 한글,영문,숫자만 입력 가능(한글2자, 영문4자 이상)">
+							</div>
+						</div>
+						<div class="register_form_area clearfix">
+							<div class="register_form_name">
+								<p>
+									이메일<sup>*</sup>
+								</p>
+							</div>
+							<div class="register_form_input">
+								<input type="email" name="shop_email" class="normal_text"
+									placeholder="공백없이 한글,영문,숫자만 입력 가능(한글2자, 영문4자 이상)">
+							</div>
+						</div>
+						<div class="register_form_area clearfix">
+							<div class="register_form_name">
+								<p>
+									아이디<sup>*</sup>
+								</p>
+							</div>
+							<div class="register_form_input">
+								<input type="text" name="shop_id" class="normal_text"
+									placeholder="영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력하세요.">
+								<div class="idCheck col-lg-10"></div>
+							</div>
+							<script>
 								$(function(){
 									var form = $(".form-horizontal");
 									$("input[name=shop_id]").on("keydown, keyup", function(){
 										var input = {shop_id : $("input[name=shop_id]").val()};
-										console.log(input);
-										$.ajax({
-										 	contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-										    url: "/userSelect.do",
-										    type: "POST",
-										    data: input,
-										    success: function(data){
-										          $(".idCheck").html("<p>"+data+"</p>");
-										          
-										    },
-										    error: function(data){
-										    	alert("에러 입니다.");
-										    }
-										  });
+										if($("input[name=shop_id]").val().length > 0){
+											$.ajax({
+											 	contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+											    url: "/userSelect.do",
+											    type: "POST",
+											    data: input,
+											    success: function(data){
+											          $(".idCheck").html("<p>"+data+"</p>");
+											          
+											    },
+											    error: function(data){
+											    	alert("에러 입니다.");
+											    }
+											  });
+										}
+										
 									});
 								});
 							</script>
-                        </div>
-                        <div class="register_form_area clearfix">
-                            <div class="register_form_name">
-                                <p>비밀번호<sup>*</sup></p>
-                            </div>
-                            <div class="register_form_input">
-                                <input type="password" name="shop_pwd" class="normal_text">
-                            </div>
-                        </div>
-                        <div class="register_form_area clearfix">
-                            <div class="register_form_name">
-                                <p>비밀번호확인<sup>*</sup></p>
-                            </div>
-                            <div class="register_form_input">
-                                <input type="password" name="shop_pwd2" class="normal_text">
-                            </div>
-                        </div>
-                        <div class="register_form_area clearfix">
-                            <div class="register_form_name">
-                                <p>연락처<sup>*</sup></p>
-                            </div>
-                            <div class="register_form_input">
-                                <input type="number" name="shop_number" />
-                            </div>
-                        </div>
-                        <div class="register_form_area clearfix">
-                            <div class="register_form_name">
-                                <p>성별<sup>*</sup></p>
-                            </div>
-                            <div class="register_form_input">
-                                <select name="shop_gender" class="form-control" id="gender">
+						</div>
+						<div class="register_form_area clearfix">
+							<div class="register_form_name">
+								<p>
+									비밀번호<sup>*</sup>
+								</p>
+							</div>
+							<div class="register_form_input">
+								<input type="password" name="shop_pwd" class="normal_text">
+							</div>
+						</div>
+						<div class="register_form_area clearfix">
+							<div class="register_form_name">
+								<p>
+									비밀번호확인<sup>*</sup>
+								</p>
+							</div>
+							<div class="register_form_input">
+								<input type="password" name="shop_pwd2" class="normal_text">
+							</div>
+						</div>
+						<div class="register_form_area clearfix">
+							<div class="register_form_name">
+								<p>
+									연락처<sup>*</sup>
+								</p>
+							</div>
+							<div class="register_form_input">
+								<input type="number" name="shop_number" />
+							</div>
+						</div>
+						<div class="register_form_area clearfix">
+							<div class="register_form_name">
+								<p>
+									성별<sup>*</sup>
+								</p>
+							</div>
+							<div class="register_form_input">
+								<select name="shop_gender" class="form-control" id="gender">
 									<option value="F">여</option>
 									<option value="M">남</option>
 								</select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="register_page">
-                        <div class="register_check_box">
+							</div>
+						</div>
+					</div>
+					<div class="register_page">
+						<!-- <div class="register_check_box">
                             <ul>
                                 <li>
                                     <input type="checkbox" class="form_chk_btn" id="register_check_li1">
@@ -136,14 +153,14 @@
                                     <label for="register_check_li3">다른 분들이 나의 정보를 볼 수 있도록 합니다.(정보공개를 바꾸시면 앞으로 30일 이내에는 변경이 안됩니다.)</label>
                                 </li>
                             </ul>
-                        </div>
-                        <a href="#!" class="register_page_btn">취소</a>
-                        <a href="#!" onclick="return form_confirm();" class="register_page_submit">다음단계</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+                        </div> -->
+						<a href="#!" class="register_page_btn">취소</a> 
+						<button type="submit" onclick="return form_confirm();" class="register_page_submit">다음단계</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 
 <script type="text/javascript">
@@ -162,7 +179,7 @@ function form_confirm(){
         //return false;
     }
     
-    if(shopMember.provisionYn.value == "n"){
+    /* if(shopMember.provisionYn.value == "n"){
     	alert("회원가입 약관에 동의해 주세요");
     	shopMember.provisionYn.focus();
     	return false;
@@ -172,9 +189,9 @@ function form_confirm(){
     	alert("개인정보취급방침에 동의해 주세요.");
     	shopmember.memberInfoYn.focus();
     	return false;
-    }
+    } */
     
-	if(!check(re,id, "아이디는 4~12자의 영문 대소문자와 숫자로만 가능합니다")) {
+	if(!check(re,shopMember.shop_id, "아이디는 4~12자의 영문 대소문자와 숫자로만 가능합니다")) {
         shopMember.shop_id.focus();
         return false;
     }

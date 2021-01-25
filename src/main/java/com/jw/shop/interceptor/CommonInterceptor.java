@@ -33,7 +33,7 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,
 			@Nullable Exception ex) throws Exception {
 		
-			System.out.println(request.getRemoteAddr());
+//			System.out.println(request.getRemoteAddr());
 	}
 	
 }

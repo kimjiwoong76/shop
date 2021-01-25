@@ -22,7 +22,7 @@
 							class="product-removal">Remove</label> <label
 							class="product-line-price">Price</label>
 					</div>
-					<form action="/product/buy.do">
+					<form action="/product/cart_buy.do">
 					<c:set var="total" value="0" />
 					<c:forEach var="result" items="${result}">
 						<div class="product">

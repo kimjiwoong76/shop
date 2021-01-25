@@ -106,6 +106,22 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public String cart_buy(UserVO uvo, ProductVO vo, CartVO cvo, Model model, HttpSession session) {
+		
+		UserVO test = (UserVO) session.getAttribute("shopMember");
+		String cvo_name = test.getShop_id();
+		List<Map<String, Object>> result = cartMapper.cartSelect2(cvo_name);
+		for(int i=0; i < result.size(); i++) {
+			CartVO list = (CartVO) result.get(i);
+			System.out.println(list);
+		}
+		model.addAttribute("result", result);
+		System.out.println("문제 없음");
+		return "/buy/cart_buy";
+	}
 	
 
 

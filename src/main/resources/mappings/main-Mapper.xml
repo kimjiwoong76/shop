@@ -4,13 +4,22 @@
 
 <mapper namespace="com.jw.shop.mapper.MainMapper">
 
+<!-- 	<select id="newItem" resultType="map"> -->
+<!-- 		select * from tbl_goods order by PRDNUM desc -->
+<!-- 	</select> -->
 	<select id="newItem" resultType="map">
-		select * from tbl_goods order by PRDNUM desc
+		select * from 
+		( select * from tbl_goods where CATECODE = '남자 의류' order by prdnum desc)
+		where 5 >= ROWNUM
 	</select>
 	<select id="girlItem" resultType="map">
 		select * from 
 		( select * from tbl_goods where CATECODE = '여자 의류' order by prdnum desc)
 		where 5 >= ROWNUM
+	</select>
+	<select id="allItem" resultType="map">
+		select * from tbl_goods where 16 >= ROWNUM order by PRDNUM desc
+		
 	</select>
 	
 	<select id="searchItem" resultType="product" parameterType="com.jw.shop.domain.ProductVO">

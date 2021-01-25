@@ -35,10 +35,10 @@
                     <dl>
                         <dt>준비중 입니다.</dt>
                         <dd>
-                            <a href="#!">Login / Join us</a>
+                            <a href="/login.do">Login / Join us</a>
                         </dd>
                         <dd>
-                            <a href="#!">My Wishlist</a>
+                            <a href="/cart/cart.do">My Wishlist</a>
                         </dd>
                         <dd>
                             <a href="#!">Order History</a>
@@ -53,7 +53,7 @@
                             <a href="#!">Email : kingjiwoong@naver.com</a>
                         </dd>
                         <dd>
-                            <a href="#!">TEL : (010)-0000-0000</a>
+                            <a href="#!">TEL : (010)-2778-8676</a>
                         </dd>
                     </dl>
                     <dl>

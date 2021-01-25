@@ -19,6 +19,7 @@ public interface ProductService {
 	
 	//상품 구매
 	String buy(UserVO uvo, ProductVO vo, CartVO cvo, Model model, HttpSession session);
+	String cart_buy(UserVO uvo, ProductVO vo, CartVO cvo, Model model, HttpSession session);
 	
 	//상품 삭제
 	void prdDelete();

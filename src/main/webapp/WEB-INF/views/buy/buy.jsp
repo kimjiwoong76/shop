@@ -19,6 +19,9 @@
 		}).open();
 	}
 </script>
+
+<script type="text/javascript"
+	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <div class="sub-content">
 	<!-- Content Wrapper. Contains page content -->
 	<div class="container">
@@ -53,13 +56,14 @@
 									</div>
 									<div class="card-body">
 										<form class="form-horizontal" role="form" method="post"
-											action="/buy/buyProc.do" name="buy_form"
-											enctype="multipart/form-data">
-											<input type="hidden" name="buy_item" value="${result.prdName}" />
-											<input type="hidden" name="buy_price" value="${result.prdPrice}" /> 
-											<input type="hidden" name="buy_color" value="${result.prdColor}" /> 
-											<input type="hidden" name="buy_size" value="${result.prdSize}" />
-											<input type="hidden" name="buy_cate" value="${result.cateCode}" />
+											action="#!" name="buy_form" enctype="multipart/form-data">
+											<input type="hidden" name="buy_item"
+												value="${result.prdName}" /> <input type="hidden"
+												name="buy_price" value="${result.prdPrice}" /> <input
+												type="hidden" name="buy_color" value="${result.prdColor}" />
+											<input type="hidden" name="buy_size"
+												value="${result.prdSize}" /> <input type="hidden"
+												name="buy_cate" value="${result.cateCode}" />
 											<div class="form-wrap">
 												<p>상품정보</p>
 												<table>
@@ -96,27 +100,43 @@
 														<th>주소</th>
 														<td>
 															<p>
-																<input id="zonecode" type="text" name="buy_address1" style="width: 50px;" readonly /> &nbsp; 
-																<input type="button" onClick="openDaumZipAddress();" value="주소 찾기" /> 
+																<input id="zonecode" type="text" name="buy_address1"
+																	style="width: 50px;" readonly /> &nbsp; <input
+																	type="button" onClick="openDaumZipAddress();"
+																	value="주소 찾기" />
 															</p>
 															<p>
-																<input type="text" id="address" name="buy_address2" style="width: 240px;" readonly />
-															 	<input type="text" id="address_etc" name="buy_address3" style="width: 200px;" />
+																<input type="text" id="address" name="buy_address2"
+																	style="width: 240px;" readonly /> <input type="text"
+																	id="address_etc" name="buy_address3"
+																	style="width: 200px;" />
 															</p>
 														</td>
 													</tr>
 												</table>
 											</div>
 											<div class="buy-btn">
-												<button type="submit" onclick="return check();">구매하기</button>
+												<button type="button" onclick="return check();">구매하기</button>
 											</div>
 										</form>
 									</div>
-									
+
 									<!-- /.card-body -->
 									<!-- /.card-footer-->
 								</div>
-								<script>
+
+								<!-- /.card -->
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /.content -->
+			</div>
+			<!-- /.content-wrapper -->
+		</div>
+	</div>
+</div>
+<script>
 									function check(){
 										if($("input[name=buy_name]").val() == ""){
 											alert("받으시는 분을 입력해 주세요");
@@ -131,21 +151,51 @@
 											return false;
 										}
 										
-										
+										buyApi();
 										
 									}
+									function buyApi(){
+										IMP.init('imp70997409');
+										var name = $("input[name=buy_name]").val();
+										var tel = $("input[name=buy_tel]").val();
+										var address = $("input[name=buy_address2]").val();
+										var address2 = $("input[name=buy_address3]").val();
+										var price = '${result.prdPrice}'.replace(",","");
+										var form = $("form").serialize();
+										IMP.request_pay({
+										    pg : 'inicis', // version 1.1.0부터 지원.
+										    pay_method : 'card',
+										    merchant_uid : 'merchant_' + new Date().getTime(),
+										    name : '${result.prdName}',
+										    amount : price, //판매 가격
+										    buyer_name : name,
+										    buyer_tel : tel,
+										    buyer_addr : address,
+										    buyer_postcode : address2
+										}, function(rsp) {
+										    if ( rsp.success ) {
+										        var msg = '결제가 완료되었습니다.';
+										        msg += '고유ID : ' + rsp.imp_uid;
+										        msg += '상점 거래ID : ' + rsp.merchant_uid;
+										        msg += '결제 금액 : ' + rsp.paid_amount;
+										        msg += '카드 승인번호 : ' + rsp.apply_num;
+										        console.log(rsp.paid_amount);
+										        $.ajax({
+										        	type : "GET",
+										        	url : "/buy/buyProc.do",
+										        	data : form,
+										        });
+										        alert(msg);
+										        return location.href="/buy/success.do";
+										    } else {
+										        var msg = '결제에 실패하였습니다.';
+										        msg += '에러내용 : ' + rsp.error_msg;
+										        return location.href="/buy/fail.do";
+										    }
+										    
+										});
+									}
+									
 								</script>
-								<!-- /.card -->
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- /.content -->
-			</div>
-			<!-- /.content-wrapper -->
-		</div>
-	</div>
-</div>
-
 <%@ include file="/WEB-INF/views/inc/footer.jsp"%>
 

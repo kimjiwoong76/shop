@@ -24,7 +24,7 @@
     z-index:95;
 }
 .sec1-slide-btn .left:hover{
-    background:#000 url(/resources/img/left-btn-white.png) no-repeat center center;
+    background-color:#fff;
 }
 .sec1-slide-btn img{
     vertical-align:middle;
@@ -41,7 +41,7 @@
     z-index:95;
 }
 .sec1-slide-btn .right:hover{
-    background:#000 url(/resources/img/right-btn-white.png) no-repeat center center;
+    background-color:#fff;
 }
 
 .sec1-slide1{
@@ -62,7 +62,7 @@
     transform: translateY(-50%);
 }
 .sec1-txt h2{
-    font-size:72px;
+    font-size:48px;
     line-height:72px;
     color:#ffffff;
 }

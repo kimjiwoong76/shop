@@ -9,6 +9,7 @@ public interface CartMapper {
 	
 	boolean cartInsert(CartVO vo);
 	List<Map<String, Object>> cartSelect(CartVO vo);
+	List<Map<String, Object>> cartSelect2(String c_name);
 	void cartDelete(CartVO vo);
 	int cartCheck(CartVO vo);
 	

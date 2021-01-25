@@ -2,16 +2,12 @@
 	pageEncoding="UTF-8"%>
 <% response.setContentType("text/html; charset=utf-8"); %>
 <%@ include file="/WEB-INF/views/inc/header.jsp"%>
+<%@ include file="/WEB-INF/views/inc/visual.jsp"%>
 <div class="sub-layout">
-    <div class="sub-visual">
-        <div class="sub-visual-txt">
-            <h2>My Life Style</h2>
-        </div>
-    </div>
     <div class="sub-content">
         <div class="container">
             <div class="row">
-                <div class="sub-category">
+                <!-- <div class="sub-category">
                     <ul>
                         <li>
                             <a href="#!">Hood<span>(5)</span></a>
@@ -29,7 +25,7 @@
                             <a href="#!">Neat<span>(2)</span></a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
                 <div class="view-content">
                     <div class="view-skin clearfix">
                         <div class="view-skin-left">
@@ -182,7 +178,7 @@
                             </div>
                         </div> -->
                     </div>
-                    <div class="recommend">
+                    <!-- <div class="recommend">
                         <h4>REcommend Product</h4>
                          <div class="recommend-list">
                             <ul class="clearfix">
@@ -248,7 +244,7 @@
                                 </li>
                             </ul>
                          </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

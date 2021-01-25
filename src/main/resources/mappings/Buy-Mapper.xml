@@ -15,6 +15,13 @@
 		INSERT INTO buy_table (BUY_NUM, BUY_CATE, BUY_ITEM, BUY_PRICE, BUY_COLOR, BUY_SIZE, BUY_NAME, BUY_TEL, BUY_ADDRESS1, BUY_ADDRESS2, BUY_ADDRESS3)
 		VALUES (BUY_SEQ.nextval, #{buy_cate}, #{buy_item}, #{buy_price}, #{buy_color}, #{buy_size}, #{buy_name}, #{buy_tel}, #{buy_address1}, #{buy_address2}, #{buy_address3})
 	</insert>
+<!-- 	<insert id="buyIns" parameterType="java.util.List"> -->
+<!-- 		INSERT INTO buy_table (BUY_NUM, BUY_CATE, BUY_ITEM, BUY_PRICE, BUY_COLOR, BUY_SIZE, BUY_NAME, BUY_TEL, BUY_ADDRESS1, BUY_ADDRESS2, BUY_ADDRESS3) -->
+<!-- 		VALUES -->
+<!-- 		<foreach collection="list" item="item" separator=","> -->
+<!-- 		 (BUY_SEQ.nextval, #{buy_cate}, #{buy_item}, #{buy_price}, #{buy_color}, #{buy_size}, #{buy_name}, #{buy_tel}, #{buy_address1}, #{buy_address2}, #{buy_address3}) -->
+<!-- 		 </foreach> -->
+<!-- 	</insert> -->
 	
 	<!-- <update id="buyUpdate">
 		UPDATE tbl_goods

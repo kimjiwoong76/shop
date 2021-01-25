@@ -28,6 +28,13 @@
 			from shop_cart inner join tbl_goods on shop_cart.prdnum = tbl_goods.prdnum 
 			where shop_cart.shop_id = #{shop_id}
 	</select>
+	<select id="cartSelect2" resultType="map" resultMap="cart">
+		select 
+			shop_cart.shop_id, shop_cart.prdnum,  shop_cart.itemsize, shop_cart.itemColor, 
+			tbl_goods.prdnum, tbl_goods.prdname, tbl_goods.PRDDES, tbl_goods.prdprice, tbl_goods.prdimg 
+			from shop_cart inner join tbl_goods on shop_cart.prdnum = tbl_goods.prdnum 
+			where shop_cart.shop_id = #{shop_id}
+	</select>
 	<select id="cartCheck" resultType="int">
 		select count(*) from shop_cart where shop_id = #{shop_id} and prdnum = #{prdNum}
 	</select>

@@ -7,7 +7,7 @@
 <div class="sub-content">
 	<div class="form">
         <div class="form_head">
-            <p>JOIN US</p>
+            <p>MEMBER UPDATE</p>
         </div>
         <div class="join_inner">
             <div class="register_head clearfix">
@@ -15,8 +15,9 @@
             </div>
             <div class="form_inner">
                 <form class="form-horizontal" role="form" method="post"
-			action="/userJoinProc.do" name="shopMember">
+			action="/userUpdateProc.do" name="shopMember">
 				<input type="hidden" name="command" value="regform">
+				<input type="hidden" name="shop_id" value="${userUpdate.shop_id}" />
                     <div class="register_form">
                         <div class="register_form_area clearfix">
                             <div class="register_form_name">
@@ -41,38 +42,6 @@
                             <div class="register_form_input">
                                 <input type="email" name="shop_email" value="${userUpdate.shop_email }" class="normal_text" placeholder="공백없이 한글,영문,숫자만 입력 가능(한글2자, 영문4자 이상)">
                             </div>
-                        </div>
-                        <div class="register_form_area clearfix">
-                            <div class="register_form_name">
-                                <p>아이디<sup>*</sup></p>
-                            </div>
-                            <div class="register_form_input">
-                                <input name="shop_id" type="text" class="form-control onlyAlphabetAndNumber"
-						id="id" data-rule-required="true"
-						value="${userUpdate.shop_id}" maxlength="30">
-                            </div>
-                            <script>
-								$(function(){
-									var form = $(".form-horizontal");
-									$("input[name=shop_id]").on("keydown, keyup", function(){
-										var input = {shop_id : $("input[name=shop_id]").val()};
-										console.log(input);
-										$.ajax({
-										 	contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-										    url: "/userSelect.do",
-										    type: "POST",
-										    data: input,
-										    success: function(data){
-										          $(".idCheck").html("<p>"+data+"</p>");
-										          
-										    },
-										    error: function(data){
-										    	alert("에러 입니다.");
-										    }
-										  });
-									});
-								});
-							</script>
                         </div>
                         <div class="register_form_area clearfix">
                             <div class="register_form_name">
@@ -128,7 +97,7 @@
                             </ul>
                         </div>
                         <a href="#!" class="register_page_btn">취소</a>
-                        <a href="#!" class="register_page_submit">다음단계</a>
+                        <button type="submit" onclick="return form_confirm();" class="register_page_submit">확인</button>
                     </div>
                 </form>
             </div>

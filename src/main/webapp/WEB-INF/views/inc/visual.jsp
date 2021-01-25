@@ -1,5 +1,5 @@
 <div class="sub-visual">
      <div class="sub-visual-txt">
-          <h2>MYSTORY</h2>
+          <h2>JW' Portfolio</h2>
      </div>
 </div>

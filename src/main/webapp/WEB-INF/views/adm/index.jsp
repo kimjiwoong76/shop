@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/adm/inc/header.jsp"%>
-
+<script>
+	var cate = '<c:out value="${cate}" />';
+	function fn_paging(curPage) {
+		location.href = "/ado.do?cateCode="+ cate +"&curPage=" + curPage;
+	}
+</script>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->

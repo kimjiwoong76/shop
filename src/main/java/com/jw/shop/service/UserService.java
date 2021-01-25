@@ -1,6 +1,9 @@
 package com.jw.shop.service;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
@@ -22,7 +25,7 @@ public interface UserService {
 	String userUpdate(UserVO vo, Model model, HttpSession session);
 
 	// 회원정보 수정
-	String userUpdateProc(UserVO vo, Model model, HttpSession session);
+	String userUpdateProc(UserVO vo, Model model, HttpSession session, HttpServletResponse res) throws IOException;
 
 	// 회원탈퇴 페이지
 	String userDelete();
@@ -34,7 +37,7 @@ public interface UserService {
 	String userJoin(Model model, HttpSession session);
 
 	// 회원가입
-	String userJoinProc(UserVO vo, String command) throws Exception;
+	String userJoinProc(UserVO vo, String command, Model model, HttpSession session) throws Exception;
 	
 	// 아이디 중복검사
 	String userSelect(Model model, UserVO vo, HttpServletRequest req);

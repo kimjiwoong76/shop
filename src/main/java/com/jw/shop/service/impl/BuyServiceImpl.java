@@ -1,10 +1,5 @@
 package com.jw.shop.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -23,15 +18,21 @@ public class BuyServiceImpl implements BuyService {
 	}
 	
 	@Override
-	public String buyProc(BuyVO vo, Model model) throws Exception {
+	public String buyProc(BuyVO vo, Model model, String amount, String buy_name) throws Exception {
 		System.out.println(vo.toString());
-		int result = buyMapper.buyIns(vo);
-		if(result == 1) {
-			return "/buy/success";
-		} else {
+		vo.setBuy_price(amount);
+		vo.setBuy_name(buy_name);
+		try {
+			int result = buyMapper.buyIns(vo);
+			if(result == 1) {
+				return "/buy/success";
+			} else {
+				return "/buy/fail";
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
 			return "/buy/fail";
 		}
-		
 	}
 
 }

@@ -1,6 +1,9 @@
 package com.jw.shop.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,7 @@ public class UserController {
 
 	private final UserService userService;
 
+	
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
@@ -27,7 +31,7 @@ public class UserController {
 		return userService.login(model, session);
 	}
 
-	@RequestMapping(value="/loginProc.do")
+	@RequestMapping("/loginProc.do")
 	public String loginProc(UserVO vo, Model model, HttpSession session) throws Exception {
 		return userService.loginProc(vo, model, session);
 	}
@@ -43,8 +47,8 @@ public class UserController {
 	}
 
 	@RequestMapping("/userUpdateProc.do")
-	public String userUpdateProc(UserVO vo, Model model, HttpSession session) {
-		return userService.userUpdateProc(vo, model, session);
+	public String userUpdateProc(UserVO vo, Model model, HttpSession session, HttpServletResponse res) throws IOException {
+		return userService.userUpdateProc(vo, model, session, res);
 	}
 
 	@RequestMapping("/userDelete.do")
@@ -68,6 +72,13 @@ public class UserController {
 		return userService.userFindIdProc(vo, model);
 	}
 	
+	//비밀번호 찾기
+	@RequestMapping("/find_pw.do")
+	public String userFindPw(UserVO vo, Model model) throws Exception {
+//		return userService.userFindId(vo, model);
+		return "/user/find_pw";
+	}
+	
 	// 회원가입 아이디 중복검사
 	@RequestMapping(value="/userSelect.do", produces = "application/text; charset=utf8")
 	@ResponseBody
@@ -88,8 +99,19 @@ public class UserController {
 	}
 
 	@RequestMapping("/userJoinProc.do")
-	public String userJoinProc(UserVO vo, String command) throws Exception{
-		return userService.userJoinProc(vo, command);
+	public String userJoinProc(UserVO vo, String command, Model model, HttpSession session) throws Exception{
+		vo.getShop_nickname();
+		return userService.userJoinProc(vo, command, model, session);
+	}
+	
+	
+	@RequestMapping("/user/welcome")
+	public String userWelcome(){
+		return "/user/welcome";
+	}
+	@RequestMapping("/user/fail")
+	public String userFail(){
+		return "/user/fail";
 	}
 	
 	
